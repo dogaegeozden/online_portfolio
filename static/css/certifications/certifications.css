@@ -1,0 +1,122 @@
+/* MEDIA QUERIES SMALL -> BIG */
+
+
+/* JioPhone 2 */
+@media (min-width: 239px) {
+	.CertificationPageBox {
+		width: 90%;
+		margin: 30px auto;
+		min-height: 100px;
+		height: auto;
+		overflow: hidden;
+	}
+
+	.CertificationPageBox h1 {
+		text-align: center;
+	}	
+
+	.CertificationFrame {
+		padding: 10px;
+		width: 100%;
+		min-height: 100px;
+		float: none;
+		margin: 0px auto 30px auto;
+		display: inline-block;
+		border: 1.8px solid #ddd;
+		border-radius: 4px;
+		background-color: #EDF2F4;
+	}
+	
+	.CertificationFrame:hover {
+		box-shadow: 0 0 3px 1px rgba(0, 140, 186, 0.5);
+		transition: 0.45s ease;
+	}
+
+	.CImg {
+		width: 90%;
+		height: auto;
+		display: block;
+		margin: auto;
+	}
+
+	.Link {
+		text-decoration: none;
+		text-align: center;
+	}
+	
+	.CTitle {
+		margin-top: 4px;
+		text-decoration: none;
+		color: black;
+	}
+}
+
+/* Galaxy Fold */
+@media (min-width: 279px) {}
+
+/* I Phone 5/SE, I phone 4, Nokia Lumia 520 */
+@media (min-width: 319px) {}
+
+/* Galaxy Note 3, Galaxy Note 2, Galaxy S3, Galaxy S5, Nexus 5, Moto G4, Microsoft Lumia950, */
+@media (min-width: 359px) {}
+
+/* Iphone 6/7/8 */
+@media (min-width: 374px) {}
+
+/* LG Optimus L70, Nexus 4 */
+@media (min-width: 383px) {}
+
+/* Iphone 12 Pro */
+@media (min-width: 389px) {}
+
+/* Iphone 6,7,8 Plus, Nexus 6P, Nexus 6, Nexus 5X */
+@media (min-width: 412px) {
+	.CertificationsPageBox {
+		margin: 50px auto;
+	}
+}
+
+/* Surface Duo */
+@media (min-width: 539px) {}
+
+/* Black Berry Play Book */
+@media (min-width: 599px) {}
+
+/* Microsoft Lumia */
+@media (min-width: 599px) {}
+
+/* Ipad */
+@media (min-width: 767px) {
+	.CertificationPageBox {
+		margin: 90px auto;
+	}
+
+	.CertificationFrame {
+		width: 45%;
+		margin: 0 2.5% 30px 2.5%;
+		float: left;
+	}
+
+}
+
+/* Kindle Fire HDX */
+@media (min-width: 799px) {}
+
+/* I pad Pro */
+@media (min-width: 1023px) {
+	.CertificationPageBox {
+		margin: 120px auto;
+	}
+
+	.CertificationFrame {
+		width: 30%;
+		margin: 0px 1.666666667% 30px 1.666666667%;
+	}
+}
+
+/* Laptop with MDPI screen, Laptop with touch */
+/* Here might be the part that you reached the normal computer measurements so check eventhough you writing some media query for bigger screens is this media query applies */
+@media (min-width: 1279px) {}
+
+/* Laptop with HiDPI screen */
+@media (min-width: 1439px) {}

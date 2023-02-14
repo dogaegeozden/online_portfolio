@@ -1,0 +1,158 @@
+<!-- Extending the base html with this html file -->
+{% extends "base.html" %}
+
+<!-- Overwriting the metaDescription block -->
+{% block metaDescription %}
+<meta name="description" content="{{ all_meta_description.last.text }}">
+{% endblock %}
+
+<!-- Overwriting the title block -->
+{% block title %}
+<title>Doga Ege Ozden | Resumes</title>
+{% endblock %}
+
+<!-- Overwriting the stylesheet block -->
+{% block stylesheet %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/resumes/resumes.css' %}">
+{% endblock %}
+
+<!-- Overwriting the mainBox block -->
+{% block mainBox %}
+<div class="ResumesPageBox">
+
+    <section class="About">
+        <h1>RESUMES</h1>
+        <p>{{ all_about_current_position_objs.last.text }}</p>
+    </section>
+
+    {% if all_resume_objs.first.field_name %}
+    <section class="OpenToWork">
+        <h3>Open to Work</h3>
+        {% for otw in all_resume_objs %}
+        <div class="ResumeBox">
+            <div class="TextBox">
+                <p>{{ otw.field_name }}</p>
+            </div>
+            <div class="IconBox">
+                <a class="ResumeFileLink" id="{{ otw.resume_name }}" href="{{ otw.file.url }}" target="_blank"><i class="fa-solid fa-file-lines"></i></a>
+            </div>
+        </div>
+        {% endfor %}
+    </section>
+    {% endif %}
+
+    {% if all_experience_objs.first.job_title %}
+    <section class="WorkExperience">
+        <h3>Work Experience</h3>
+        {% for we in all_experience_objs reversed %}
+        <div class="WorkExperienceItem">
+            <div class="ContentWrap1">
+                {% if we.job_title %}
+                <h4>{{ we.job_title }}</h4>
+                {% endif %} {% if we.company_name %}
+                <p>{{ we.company_name }}</p>
+                {% endif %} {% if we.start_date %}
+                <p>{{ we.start_date }} - {% if we.working_status == 'p' %} Present {% elif we.working_status == 'c' %} {% if we.end_date %} {{ we.end_date }} {% else %} No time indicated {% endif %} {% else %} {% if we.end_date %} {{ we.end_date }} {% else %} No status indicated {% endif %} {% endif %}</p>
+                {% endif %}
+            </div>
+            <div class="ContentWrap2">
+                {% if we.text %}
+                <p>{{ we.text }}</p>
+                {% endif %} {% if we.header %}
+                <p>{{ we.header }}</p>
+                {% endif %}
+                <ul>
+                    {% if we.list_item_1 %}
+                    <li>{{ we.list_item_1 }}</li>
+                    {% endif %} {% if we.list_item_2 %}
+                    <li>{{ we.list_item_2 }}</li>
+                    {% endif %} {% if we.list_item_3 %}
+                    <li>{{ we.list_item_3 }}</li>
+                    {% endif %} {% if we.list_item_4 %}
+                    <li>{{ we.list_item_4 }}</li>
+                    {% endif %} {% if we.list_item_5 %}
+                    <li>{{ we.list_item_5 }}</li>
+                    {% endif %}
+                </ul>
+                <p>See my complete work history on <a href="{{ allSocialMediaLinks.last.linkedin }}">Linkedin</a>.</p>
+                {% if we.img_1 %}
+                <a target="_blank" href="{{ we.img_1.url }}"><img class="ExpImg" src="{{ we.img_1.url }}" alt="{{ we.alt }}"></a>
+                {% endif %} {% if we.img_2 %}
+                <a target="_blank" href="{{ we.img_2.url }}"><img class="ExpImg" src="{{ we.img_2.url }}" alt="{{ we.alt }}"></a>
+                {% endif %} {% if we.img_3 %}
+                <a target="_blank" href="{{ we.img_3.url }}"><img class="ExpImg" src="{{ we.img_3.url }}" alt="{{ we.alt }}"></a>
+                {% endif %} {% if we.img_4 %}
+                <a target="_blank" href="{{ we.img_4.url }}"><img class="ExpImg" src="{{ we.img_4.url }}" alt="{{ we.alt }}"></a>
+                {% endif %} {% if we.img_5 %}
+                <a target="_blank" href="{{ we.img_5.url }}"><img class="ExpImg" src="{{ we.img_5.url }}" alt="{{ we.alt }}"></a>
+                {% endif %} {% if we.img_6 %}
+                <a target="_blank" href="{{ we.img_6.url }}"><img class="ExpImg" src="{{ we.img_6.url }}" alt="{{ we.alt }}"></a>
+                {% endif %} {% if we.img_7 %}
+                <a target="_blank" href="{{ we.img_7.url }}"><img class="ExpImg" src="{{ we.img_7.url }}" alt="{{ we.alt }}"></a>
+                {% endif %} {% if we.img_8 %}
+                <a target="_blank" href="{{ we.img_8.url }}"><img class="ExpImg" src="{{ we.img_8.url }}" alt="{{ we.alt }}"></a>
+                {% endif %} {% if we.img_9 %}
+                <a target="_blank" href="{{ we.img_9.url }}"><img class="ExpImg" src="{{ we.img_9.url }}" alt="{{ we.alt }}"></a>
+                {% endif %} {% if we.img_10 %}
+                <a target="_blank" href="{{ we.img_10.url }}"><img class="ExpImg" src="{{ we.img_10.url }}" alt="{{ we.alt }}"></a>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </section>
+    {% endif %}
+    {% if all_education_objs.first.name %}
+    <section class="Education">
+        <h3>Education</h3>
+        <h4>{{ all_education_objs.last.name }} - {{ all_education_objs.last.city }}, {{ all_education_objs.last.province }}, {{ all_education_objs.last.start_date }} - {{ all_education_objs.last.end_date }}</h4>
+        <h5>{{ all_education_objs.last.major }}</h5>
+        <p>{{ all_education_objs.last.diploma }}</p>
+        <p>{{ all_education_objs.last.para }}</p>
+    </section>
+    {% endif %}
+
+</div>
+{% endblock %}
+
+<!-- Overwriting the javascript block -->
+{% block js %}
+ <!-- A javascript code that sends a post request to the database when a user clicks to a social media button. -->
+ <script type="text/javascript">
+    // Creating a query set from all of the social media buttons.
+    let resumeLinks = document.querySelectorAll(".ResumeFileLink");
+
+    function addSendRequestFunctionality() {
+        // A function which sends a post request. 
+
+        // Iterating over the array one by one
+        for (let resumeLink = 0; resumeLink < resumeLinks.length; resumeLink++ ) {
+
+            // Identifying the resume choice from the element's id
+            let resumeChoice = resumeLinks[resumeLink].getAttribute("id");
+
+            // Adding an event listener to everysingle social media btn in the array
+            resumeLinks[resumeLink].addEventListener("click", sendResumeChoiceInfo);
+
+            // Creating a separate function for every single social media element in the array
+            function sendResumeChoiceInfo () {
+                // Capture the csrf token
+                var csrf = "{{ csrf_token }}";
+
+                // Sending a post request
+                $.ajax({
+                    url: '',
+                    type: 'POST',
+                    data: {
+                        id: "resume_choice_request",
+                        resumeChoice: resumeChoice,
+                        csrfmiddlewaretoken: csrf,
+                    },
+                });
+            }
+        }
+    }
+    // Calling the addSendRequestFunctionality function.
+    addSendRequestFunctionality();
+</script>
+{% endblock %}

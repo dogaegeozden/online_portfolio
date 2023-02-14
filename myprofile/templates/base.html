@@ -1,0 +1,253 @@
+<!doctype html>
+<html>
+    <head>
+        <!-- Calling the Global site tag (gtag.js) - Google Analytics asynchronously -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-173545334-2"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'UA-173545334-2');
+        </script>
+
+        <!-- Creating a block called metaDescription -->
+        {% block metaDescription %}
+        {% endblock %}
+
+        <!-- Calling external javascript file from fontawesome to access their icons -->
+        <script src="https://kit.fontawesome.com/925971cc77.js" crossorigin="anonymous"></script>
+
+        <!-- Creating a block called title -->
+        {% block title %}
+        {% endblock %}
+
+        <!-- Setting the encoding -->
+        <meta charset="utf-8">
+
+        <!-- Configuring how the page will be scaled-->
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+
+        <!-- Font family of all h1s -->
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Coiny">
+
+        <!-- Font family of all h2s, 3s, 4s and, 5s -->
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap" rel="stylesheet">
+
+        <!-- Font family of all paragraphs, list items, bold texts, buttons, labels and inputs' which has submit type.  -->
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+        <!-- Font family of the links that are located in the navigation bar -->
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+
+        <!-- Font family of paragraphs and links that are located in the footer -->
+        <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
+
+        <!-- Font family for the aesthetics  -->
+        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+
+        <!-- Load static tag to load static files. -->
+        {% load static %}
+
+        <!-- Reset style sheet which prevents the changes which may happen due to changes in css's itself's default values -->
+        <link rel="stylesheet" href="{% static 'css/base/reset.css' %}">
+
+        <!-- Normilize style sheet to configure the default values of html elements -->
+        <link rel="stylesheet" href="{% static 'css/base/normalize.css' %}">
+
+        <!-- Base html's style sheet -->
+        <link rel="stylesheet" href="{% static 'css/base/base.css' %}">
+
+        <!-- Style sheet block for other html pages that will extend from this base html -->
+        {% block stylesheet %}
+        {% endblock %}
+
+        <!-- Refer to the jquery library to be able to use it in your javascript code -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    </head>
+
+    <body>
+        <!-- Cookie Notice -->
+        {% if cookie_notice_answer == 0%}
+        <div class="CookieNotice">
+            <div class="LinkAndTextBox">
+                <p class="CookieNoticeText">My web page uses cookies to enhance your user experience and measure web page's traffic.</p>
+                <a class="LearnMoreLink" href="{% url 'privacy-policy' %}"><strong>Learn More</strong></a>
+            </div>
+            <div class="CookieNoticeFormBox">
+                <form class='CookieNoticeForm' action="{{ main.url }}" method="POST">{% csrf_token %}
+                    <input class='IGotIt' type="submit" name="iGotIt" value="GOT IT!">
+                </form>
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Header of the page  -->
+        <header>
+            <div class="TopNav" id="MyTopNav">
+                <a class="NavBarLink" href="{% url 'home' %}">Home</a>
+                <a class="NavBarLink" href="{% url 'works' %}">Works</a>
+                <div class="DropDown">
+                    <button class="DropBtn NavBarLink">About Me <i class="fa-solid fa-caret-up"></i></button>
+                    <div class="DropDownContent">
+                        <a href="{% url 'resumes'%}">Resumes</a>
+                        <a href="{% url 'certifications'%}">Certificates</a>
+                    </div>
+                </div>
+                <a class="NavBarLink" href="{% url 'blog'%}">Blog</a>
+                <a class="NavBarLink" href="{% url 'contact'%}">Contact</a>
+                <a href="javascript:void(0);" style="font-size:15px" class="Icon" onclick="myFunction()">&#9776;</a>
+            </div>
+        </header>
+
+        <!-- Main section of the page -->
+        <main>
+            <!-- Google translate api -->
+            <div class="google_translate"><div style="display:inline;" id="google_translate_element"></div></div>
+
+            <!-- A main block which other htmls to overwrite it -->
+            {% block mainBox %}
+            {% endblock %}
+
+        </main>
+
+        <!-- A div for social media icons and links -->
+        {% if all_social_media_link_objs.first.linkedin or all_social_media_link_objs.first.instagram or all_social_media_link_objs.first.facebook or all_social_media_link_objs.first.github or all_social_media_link_objs.first.googleplay %}
+        <div class="SocialMediaBox">
+            {% if all_social_media_link_objs.first.linkedin %}
+            <a name="LinkedIn" class="LinkedInIcon SocialMediaBtn" href="{{ all_social_media_link_objs.last.linkedin }}" target="_blank"><i class="fab fa-linkedin"></i></a>
+            {% endif %}
+            {% if all_social_media_link_objs.first.github %}
+            <a name="GitHub" class="GithubIcon SocialMediaBtn" href="{{ all_social_media_link_objs.last.github }}" target="_blank"><i class="fab fa-github"></i></a>
+            {% endif %}
+            {% if all_social_media_link_objs.first.googleplay %}
+            <a name="GooglePlay" class='GooglePlay SocialMediaBtn' href="{{ all_social_media_link_objs.last.googleplay }}" target="_blank"><img class="GooglePlayStoreLogo" src="https://www.logo.wine/a/logo/Google_Play/Google_Play-Icon-Logo.wine.svg"></a>
+            {% endif %}
+            {% if all_social_media_link_objs.first.instagram %}
+            <a name="Instagram" class="InstagramIcon SocialMediaBtn" href="{{ all_social_media_link_objs.last.instagram }}" target="_blank"><i class="fab fa-instagram"></i></a>
+            {% endif %}
+            {% if all_social_media_link_objs.first.facebook %}
+            <a name="Facebook" class="FacebookIcon SocialMediaBtn" href="{{ all_social_media_link_objs.last.facebook }}" target="_blank"><i class="fab fa-facebook-square"></i></a>
+            {% endif %}
+        </div>
+        {% endif %}
+
+        <!-- Footer of the page -->
+        <footer>
+            <div class="CopyRightInformation">
+                <ul>
+                    <li>Made by Doga Ege Ozden </li>
+                    <li><a href="{% url 'privacy-policy' %}">Privacy Policy</a></li>
+                    <li><a href="{% url 'terms-and-conditions' %}">Terms and Conditions</a></li>
+                    <li>Icons by <a id="Icon-Link" href="https://fontawesome.com" target="_blank">fontawesome </a></li>
+                    <li>Copyright © 2022 All rights reserved.</li>
+                </ul>
+            </div>
+        </footer>
+
+        <!-- Hamburger button's javascript file -->
+        <script src="{% static 'js/base/hamburger_button.js' %}"></script>
+
+        <!-- Google translate script to use google translate api -->
+        <script type="text/javascript">
+            function googleTranslateElementInit() {
+                new google.translate.TranslateElement(
+                    {
+                        pageLanguage: "{{language}}",
+                        layout: google.translate.TranslateElement.InlineLayout.VERTICAL,
+                    },
+                    "google_translate_element"
+                );
+            }
+        </script>
+        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+        <!-- A script which prevents visitors from resubmission forms with a page refresh -->
+        <script type="text/javascript">
+            function stopFormRefreshResubmit() {
+                // A function which stops resubmission of forms with a page refresh.
+                
+                // Checking if the window is refreshing.
+                if ( window.history.replaceState ) {
+                    // Changing the current history entry with a null value to prevent resubmission forms.
+                    window.history.replaceState( null, null, window.location.href );
+                }
+            }
+
+            // Calling the stopFormRefreshResubmit function.
+            stopFormRefreshResubmit();
+        </script>
+
+        <!-- A script that center aligns the social media box vertically -->
+        <script type="text/javascript">
+            // Creating a variable called socialMediaBox by capturing the element which has the SocialMediaBox class from the DOM.
+            let socialMediaBox = document.querySelector(".SocialMediaBox"),
+            // Creating a variable called screenHeight which is equal to the inner height of the browser window.
+                screenHeight = window.innerHeight,
+            // Creating a variable called screenWidth which is equal to the avail width in the browser window.
+                screenWidth = window.screen.availWidth,
+            // Creating a variable called sMBH which is equal to the socialMediaBox element's height
+                sMBH = socialMediaBox.offsetHeight,
+            // Creating a variable called reqM (required measure) which is equal to the amount of pixels that which is required to vertically center align the socialMediaBox.
+                reqM = (screenHeight / 2) - (sMBH / 2);
+
+            function centerAlignSocialMediaBoxVertically() {
+                // A function which center aligns the socialMediaBox vertically.
+
+                // Checking if the screen width is greater or equal to 600 pixels.
+                if ( screenWidth >= 600 ) {
+                    // Pushing the socialMediaBox from top.
+                    socialMediaBox.style.top = `${reqM}px`;
+                }
+            }
+
+            // Calling the centerAlignSocialMediaBoxVertically function.
+            centerAlignSocialMediaBoxVertically();
+        </script>
+
+        <!-- A javascript code that sends a post request to the database when a user clicks to a social media button. -->
+        <script type="text/javascript">
+            // Creating a query set from all of the social media buttons.
+            let socialMediaBtns = document.querySelectorAll(".SocialMediaBtn");
+            
+            function addRequestSendingFunctionality() {
+                // A function which adds post request sending functionality to all social media buttons.
+
+                // Iterating over the array one by one
+                for (let sMB = 0; sMB < socialMediaBtns.length; sMB++ ) {
+
+                    // Identifying the social media choice from the element's id
+                    let socialMediaChoice = socialMediaBtns[sMB].getAttribute("name");
+
+                    // Adding an event listener to everysingle social media btn in the array
+                    socialMediaBtns[sMB].addEventListener("click", sendSMBCInfo);
+
+                    // Creating a separate function for every single social media element in the array
+                    function sendSMBCInfo () {
+                        // Capture the csrf token
+                        var csrf = "{{ csrf_token }}";
+
+                        // Send a post request
+                        $.ajax({
+                            url: '',
+                            type: 'POST',
+                            data: {
+                                id: "smbcp",
+                                socialMediaChoice: socialMediaChoice,
+                                csrfmiddlewaretoken: csrf,
+                            },
+                        });
+                    }
+                }
+            }
+
+            // Calling the addRequestSendingFunctionality function.
+            addRequestSendingFunctionality();
+        </script>
+
+        <!-- Creating a javascript block for other html pages which will extend from this html file -->
+        {% block js %}
+        {% endblock %}
+
+    </body>
+</html>

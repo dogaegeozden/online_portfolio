@@ -1,0 +1,517 @@
+/* MEDIA QUERIES SMALL -> BIG */
+
+
+/* JioPhone 2 */
+@media (min-width: 239px) {
+    .ResumesPageBox {
+        display: inline-block;
+        min-height: 100px;
+        height: auto;
+        width: 100%;
+        overflow: hidden;
+        margin: 30px auto;
+    }
+
+    main h2 {
+        text-align: center;
+    }
+
+    .About {
+        width: 200px;
+        margin: 0 auto 0 auto;
+    }
+
+    main h3 {
+        margin-top: 0;
+    }
+
+    .OpenToWork {
+        width: 200px;
+        margin: 30px auto 0 auto;
+        display: block;
+        height: auto;
+    }
+
+    .OpenToWork h3 {
+        margin-bottom: 20px;
+    }
+
+    .ResumeBox {
+        margin-bottom: 10px;
+        height: 45px;
+        display: inline-block;
+    }
+
+    .TextBox, .IconBox {
+        height: 100%;
+        float: left;
+        display: inline;
+    }
+
+    .TextBox {
+        margin-right: 12px;
+    }
+
+    .fa-file-lines {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        color: rgb(255, 61, 170);
+        font-size: 32px;
+    }
+
+    .fa-file-lines:hover {
+        color: rgb(39, 253, 245);
+        transition: 0.5s ease;
+    }
+
+    .WorkExperience {
+        margin: 30px auto 0 auto;
+        width: 200px;
+        height: auto;
+    }
+
+    .WorkExperience h3 {
+        margin: 0 auto 0 auto;
+    }
+
+    .WorkExperienceItem:first-of-type {
+        margin-top: 25px;
+    }
+
+    .WorkExperienceItem {
+        margin: 0 auto 25px auto;
+        display: inline-block;
+        min-height: 50px;
+        height: auto;
+        overflow: hidden;
+    }
+
+    .WorkExperienceItem a {
+        color: rgb(255, 61, 170);
+    }
+
+    .WorkExperienceItem a:hover {
+        text-decoration: none;
+        color: rgb(39, 253, 245);
+        transition: 0.5s ease;
+    }
+
+    .ContentWrap1, .ContentWrap2 {
+        float: left;
+        width: 200px;
+    }
+
+    .ExpImg {
+        width: 17%;
+        height: 20px;
+        float: left;
+        margin: 2px 2px;
+        border-radius: 4px;
+    }
+
+    .Education {
+        background: linear-gradient(rgba(141, 153, 174, 0.8), rgba(141, 153, 174, 0.5)), url("/static/assets/toronto.jpg") no-repeat fixed;
+        background-size: cover;
+        background-position: center;
+        margin-bottom: 0;
+        overflow: hidden;
+        width: 100%;
+        padding: 20px 20px 50px 30px;
+        float: top;
+        z-index: 0;
+        position: relative;
+        min-height: 400px;
+        height: auto;
+    }
+
+}
+
+/* Galaxy Fold */
+@media (min-width: 279px) {}
+
+/* I Phone 5/SE, I phone 4, Nokia Lumia 520 */
+@media (min-width: 319px) {
+    .About {
+        width: 230px;
+    }
+
+    .OpenToWork {
+        width: 230px;
+    }
+
+    .WorkExperience {
+        width: 230px;
+    }
+
+    .ExpImg {
+        height: 26px;
+    }
+}
+
+/* Galaxy Note 3, Galaxy Note 2, Galaxy S3, Galaxy S5, Nexus 5, Moto G4, Microsoft Lumia950, */
+@media (min-width: 359px) {
+    .About {
+        width: 250px;
+    }
+
+    .OpenToWork {
+        width: 250px;
+    }
+
+    .WorkExperience {
+        width: 250px;
+    }
+
+    .WorkExperience h3 {
+        margin-bottom: 20px;
+    }
+
+    .ContentWrap1 {
+        width: 250px;
+    }
+
+    .ContentWrap2 {
+        width: 250px;
+    }
+
+    .ExpImg {
+        height: 29px;
+    }
+}
+
+/* Iphone 6/7/8 */
+@media (min-width: 374px) {
+    .ResumesPageBox {
+        margin: 50px auto 0 auto;
+    }
+
+    .About {
+        width: 280px;
+    }
+
+    .OpenToWork {
+        width: 280px;
+    }
+
+    .WorkExperience {
+        width: 280px;
+    }
+
+    .ContentWrap1 {
+        width: 280px;
+    }
+
+    .ContentWrap2 {
+        width: 280px;
+    }
+
+    .ExpImg {
+        height: 33px;
+    }
+}
+
+/* LG Optimus L70, Nexus 4 */
+@media (min-width: 383px) {
+    .About {
+        width: 300px;
+    }
+
+    .OpenToWork {
+        width: 300px;
+    }
+
+    .WorkExperience {
+        width: 300px;
+    }
+
+    .ContentWrap1 {
+        width: 300px;
+    }
+
+    .ContentWrap2 {
+        width: 300px;
+    }
+
+    .ExpImg {
+        height: 35px;
+    }
+}
+
+/* Iphone 12 Pro */
+@media (min-width: 389px) {
+    .About {
+        width: 320px;
+    }
+
+    .OpenToWork {
+        width: 320px;
+    }
+
+    .WorkExperience {
+        width: 320px;
+    }
+
+    .ContentWrap1 {
+        width: 300px;
+    }
+
+    .ContentWrap2 {
+        width: 300px;
+    }
+
+    .ExpImg {
+        height: 36px;
+    }
+}
+
+/* Iphone 6,7,8 Plus, Nexus 6P, Nexus 6, Nexus 5X */
+@media (min-width: 412px) {
+    .About {
+        width: 340px;
+    }
+
+    .OpenToWork {
+        width: 340px;
+    }
+
+    .WorkExperience {
+        width: 340px;
+    }
+
+    .ExpImg {
+        height: 38px;
+    }
+}
+
+/* Surface Duo */
+@media (min-width: 539px) {
+    .About {
+        width: 400px;
+    }
+
+    .OpenToWork {
+        width: 400px;
+    }
+
+    .WorkExperience {
+        width: 400px;
+    }
+
+    .ContentWrap1 {
+        width: 400px;
+    }
+
+    .ContentWrap2 {
+        width: 400px;
+    }
+
+    .ExpImg {
+        height: 40px;
+    }
+}
+
+/* Black Berry Play Book */
+@media (min-width: 599px) {
+    .About {
+        width: 500px;
+    }
+
+    .OpenToWork {
+        width: 500px;
+    }
+
+    .WorkExperience {
+        width: 500px;
+    }
+
+    .ContentWrap1 {
+        width: 500px;
+    }
+
+    .ContentWrap2 {
+        width: 500px;
+    }
+
+    .ExpImg {
+        height: 42px;
+    }
+}
+
+/* Microsoft Lumia 550 */
+@media (min-width: 639px) {
+    .About {
+        width: 500px;
+    }
+
+    .OpenToWork {
+        width: 500px;
+    }
+
+    .WorkExperience {
+        width: 500px;
+    }
+
+    .ContentWrap1 {
+        width: 500px;
+    }
+
+    .ContentWrap2 {
+        width: 500px;
+    }
+
+    .ExpImg {
+        height: 50px;
+    }
+}
+
+/* Ipad */
+@media (min-width: 767px) {
+    .ResumesPageBox {
+        margin: 90px auto 0 auto;
+    }
+
+    .About {
+        width: 550px;
+    }
+
+    .OpenToWork {
+        width: 550px;
+    }
+
+    .WorkExperience {
+        width: 550px;
+    }
+
+    .WorkExperienceItem:first-of-type {
+        margin-top: 0px;
+    }
+
+    .WorkExperienceItem {
+        margin-bottom: 30px;
+    }
+
+    .ContentWrap1 {
+        width: 550px;
+    }
+
+    .ContentWrap2 {
+        width: 550px;
+    }
+
+    .ExpImg {
+        height: 57px;
+    }
+}
+
+/* Kindle Fire HDX */
+@media (min-width: 799px) {
+    .About {
+        width: 550px;
+    }
+
+    .OpenToWork {
+        width: 550px;
+    }
+
+    .WorkExperience {
+        width: 550px;
+    } 
+
+    .ContentWrap1 {
+        width: 275px;
+        padding: 0 15px 0 0;
+    }
+
+    .ContentWrap2 {
+        width: 275px;
+    }
+
+    .ExpImg {
+        height: 38px;
+    }
+}
+
+/* I pad Pro */
+@media (min-width: 1023px) {
+    .ResumesPageBox {
+        margin: 120px auto 0 auto;
+    }
+
+    .About {
+        width: 750px;
+    }
+
+    .OpenToWork {
+        width: 750px;
+    }
+
+    .WorkExperience {
+        width: 750px;
+    }
+
+    .ContentWrap1 {
+        width: 375px;
+    }
+
+    .ContentWrap2 {
+        width: 375px;
+    }
+
+    .ExpImg {
+        height: 50px;
+    }
+}
+
+/* Laptop with MDPI screen, Laptop with touch */
+/* Here might be the part that you reached the normal computer measurements so check eventhough you writing some media query for bigger screens is this media query applies */
+@media (min-width: 1279px) {
+    .About {
+        width: 1000px;
+        margin: auto;
+    }
+    .About p {
+        width: 500px;
+    }
+
+    .OpenToWork {
+        width: 900px;
+        margin: 70px auto;
+    }
+
+    .WorkExperience {
+        margin: 70px auto;
+        width: 900px;
+    }
+
+    .WorkExperienceItem {
+        margin-bottom: 50px;
+    }
+
+    .WorkExperience h3 {
+        margin-left: auto;
+    }
+
+    .ContentWrap1 {
+        width: 250px;
+        margin-right: 60px;
+    }
+
+    .ContentWrap2 {
+        width: 590px;
+    }
+
+    .ExpImg {
+        height: 55px;
+    }
+
+    .Education {
+        padding: 50px 50px 50px 300px;
+    }
+}
+
+/* Laptop with HiDPI screen */
+@media (min-width: 1439px) {}
+/* Note: Center allign the headers inside of About section and work experience section. */
+/* Note: You are not increaseing the font size of the top nav fron now on. It's getting enormous. */
+/* NOte: You should stop increasing the font size of the buttons as well it will start looking enormous. */

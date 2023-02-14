@@ -1,0 +1,306 @@
+/* MEDIA QUERIES SMALL -> BIG */
+
+
+/* JioPhone 2 */
+@media (min-width: 239px) {
+	.BlogPageBox {
+		margin: 30px auto;
+		width: 90%;
+		display: block;
+		padding: 0 15px;
+		min-height: 100px;
+		height: auto;
+		overflow: hidden;
+	}
+
+	.BlogPageBox h1 {
+		text-align: center;
+	}
+
+	.SubscriptionBox {
+		width: 100%;
+		text-align: center;
+		display: block;
+		min-height: 100px;
+		height: auto;
+		padding: 10px;
+		margin: auto;
+		border-radius: 5px;
+	}
+
+	.TopRowofForm {
+		width: 100%;
+		height: 30px;
+		text-align: center;
+		margin: 0 auto 20px auto;
+		display: block;
+		vertical-align: middle;
+	}
+
+	label[for='id_email'], input[name=email] {
+		display: block;
+		float: left;
+		margin: 0;
+	}
+
+	label[for='id_email'] {
+		width: 35%;
+		vertical-align: middle;
+		margin: 0px 2% 0px 0px;
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
+	input[name=email] {
+		width: 63%;
+		padding: 2px 5px;
+		height: 100%;
+		display: inline-block;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		box-sizing: border-box;
+	}
+
+	.SubscribeBtn {
+		width: auto;
+		padding: 0 15px;
+		margin: 10px auto 20px auto;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		moz-transition: all .4s ease-in-out;
+		-o-transition: all .4s ease-in-out;
+		-webkit-transition: all .4s ease-in-out;
+		transition: all .4s ease-in-out;
+		font-size: 16px;
+		font-weight: 600;
+		color: #fff;
+		cursor: pointer;
+		text-align: center;
+		height: 55px;
+		border: none;
+		background-size: 300% 100%;
+		border-radius: 50px;
+	}
+	
+	.SubscribeBtn:hover{
+		background-position: 100% 0;
+		moz-transition: all .4s ease-in-out;
+		-o-transition: all .4s ease-in-out;
+		-webkit-transition: all .4s ease-in-out;
+		transition: all .4s ease-in-out;
+	}
+	
+	.SubscribeBtn:focus {
+		outline: none;
+	}
+	
+	.SubscribeBtn.CENM0 {
+		background-image: linear-gradient(to right, #fc6076, #ff9a44, #ef9d43, #e75516);
+		box-shadow: 0 4px 15px 0 rgba(252, 104, 110, 0.75);
+	}
+
+	.BlogBox {
+		width: 100%;
+		min-height: 100px;
+		height: auto;
+		display: block;
+		margin: auto;
+		overflow: hidden;
+	}
+
+	.PostBox {
+		min-height: 100px;
+		height: auto;
+		width: 100%;
+		margin: 0px auto 25px auto;
+		display: block;
+		border-radius: 5px;
+		background-color: #EDF2F4;
+		overflow: hidden;
+		padding: 15px;
+	}
+
+	.PDate {
+		float: right;
+	}
+
+	.PostBox:last-of-type {
+		margin-bottom: 0px;
+	}
+
+	.PVid, .PostImageBox {
+		height: 120px;
+		float: left;
+		width: 100%;
+	}
+
+	.PostImageBox {
+		overflow: hidden;
+		width: 100%;
+		margin: 0;
+	}
+
+	.PImg {
+		width: 100%;
+	}
+
+	.BlogText {
+		height: auto;
+		width: 100%;
+		float: right;
+	}
+
+	.DetailsBtn {
+		display: block;
+		outline: none;
+		margin: auto;
+		cursor: pointer;
+		border-radius: 7.5px;
+		transition-property: background-color,border-color,color,box-shadow,filter;
+		transition-duration: .3s;
+		border: 1px solid transparent;
+		text-align: center;
+		font-weight: 700;
+		padding: 5px 15px;
+		width: 120px;
+		color: #fff;
+		background-color: rgb(255, 61, 170);
+		height: 30px;
+	}
+	
+	.DetailsBtn:hover{
+		background-color: rgb(39, 253, 245);
+	}
+	
+	.PostDetailPageLink {
+		text-decoration: none;
+	}
+}
+
+/* Galaxy Fold */
+@media (min-width: 279px) {
+	label[for='id_email'] {
+		width: 30%;
+
+	}
+
+	input[name=email] {
+		width: 68%;
+	}
+}
+
+/* I Phone 5/SE, I phone 4, Nokia Lumia 520 */
+@media (min-width: 319px) {
+	.PVid, .PostImageBox {
+		height: 150px;
+	}
+}
+
+/* Galaxy Note 3, Galaxy Note 2, Galaxy S3, Galaxy S5, Nexus 5, Moto G4, Microsoft Lumia950, */
+@media (min-width: 359px) {
+	label[for='id_email'] {
+		width: 25%;
+	}
+	input[name='email'] {
+		width: 73%;
+	}
+}
+
+
+/* Iphone 6/7/8 */
+@media (min-width: 374px) {}
+
+/* LG Optimus L70, Nexus 4 */
+@media (min-width: 383px) {}
+
+/* Iphone 12 Pro */
+@media (min-width: 389px) {}
+
+/* Iphone 6,7,8 Plus, Nexus 6P, Nexus 6, Nexus 5X  */
+@media (min-width: 412px) {
+	.BlogPageBox {
+		margin: 50px auto;
+	}
+	.TopRowofForm {
+		height: 40px;
+	}
+}
+
+
+/* Surface Duo */
+@media (min-width: 539px) {
+	label[for='id_email'] {
+		width: 20%;
+	}
+	input[name='email'] {
+		width: 78%;
+	}
+	.PVid, .PostImageBox {
+		height: 300px;
+	}
+}
+
+
+/* Black Berry Play Book */
+@media (min-width: 599px) {
+	.TopRowofForm {
+		width: 80%;
+	}
+	.PostBox {
+		padding: 10px 10px 30px 10px;
+	}
+	.DetailsBtn {
+		margin: 0;
+	}
+}
+
+/* Microsoft Lumia 550 */
+@media (min-width: 639px) {}
+
+/* Ipad */
+@media (min-width: 767px) {
+	.BlogPageBox {
+		margin: 90px auto;
+		width: 80%;
+	}
+	.PostBox {
+		margin-bottom: 30px;
+		padding: 20px 20px 40px 20px;
+	}
+	.PostBox:last-of-type {
+		margin-bottom: 0px;
+	}
+}
+
+
+/* Kindle Fire HDX */
+@media (min-width: 799px) {}
+
+
+/* I pad Pro */
+@media (min-width: 1023px) {
+	.BlogPageBox {
+		margin: 120px auto;
+		width: 70%;
+	}
+}
+
+
+/* Laptop with MDPI screen, Laptop with touch */
+/* Here might be the part that you reached the normal computer measurements so check eventhough you writing some media query for bigger screens is this media query applies */
+@media (min-width: 1279px) {
+	.BlogPageBox {
+		margin: 120px auto;
+		max-width: 1000px;
+	}
+
+	.PVid, .PostImageBox {
+		height: 450px;
+	}
+}
+
+
+/* Laptop with HiDPI screen */
+@media (min-width: 1439px) {}

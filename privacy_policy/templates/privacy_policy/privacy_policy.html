@@ -1,0 +1,242 @@
+<!-- Extending the base html with this html file -->
+{% extends "base.html" %}
+
+<!-- Overwriting the metaDescription block -->
+{% block metaDescription %}
+<meta name="description" content="{{ all_meta_description_objs.last.text }}">
+{% endblock %}
+
+<!-- Overwriting the title block -->
+{% block title %}
+<title>Doga Ege Ozden | Privacy Policy</title>
+{% endblock %}
+
+<!-- Overwriting the stylesheet block -->
+{% block stylesheet %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/privacy_policy/privacy_policy.css' %}">
+{% endblock %}
+
+<!-- Overwriting the mainBox block -->
+{% block mainBox %}
+<div class="PrivacyPolicyBox">
+    <h1>PRIVACY POLICY</h1>
+    <div class="PrivacyPolicyContBox">
+        <p>Effective Date: Feb 2, 2022</p>
+        <section id="Introduction">
+            <h2>INTRODUCTION</h2>
+            <p>One of my main priorities is the privacy of my online portfolio's visitors. This Privacy Policy contains types of information that is collected and recorded by me and how I use it. If you have an additional questions or require more information about my Privacy Policy, do not hesitate to contact me.</p>
+            <p>This Privacy Policy is exist from 9 main sections.</p>
+            <p>These sections are:</p>
+            <ol>
+                <li><a href="#Introduction">Introduction</a></li>
+                <li><a href="#Consent">Consent</a></li>
+                <li><a href="TheDataIcollectAndUsage">The Data I Collect & Usage</a></li>
+                <li><a href="#StorageAndSharing">Storage & Sharing</a></li>
+                <li><a href="#YourRightsAndOptions">Your Rights & Options</a></li>
+                <li><a href="#CookiesAndSimilarTechnologies">Cookies & Similar Technologies</a></li>
+                <li><a href="#Security">Security</a></li>
+                <li><a href="#Children">Children</a></li>
+                <li><a href="#ContactMe">Contact Me</a></li>
+            </ol>
+            <p>This Privacy Policy applies to Doga Ege Ozden's projects, sites, applications and related services, which I here collectively call the Service. I may periodically update this Privacy Policy by posting a new version on <a class="TheWebPageLink" href="#"></a>. If I make any changes to this Privacy Policy, I will notify you as required under applicable law, including by posting a notice in the Service prior to the change becoming effective. Your continued use of the Service after the effective date will be subject to the new Privacy Policy.</p>
+        </section>
+        <section id="Consent">
+            <h2>CONSENT</h2>
+            <p>By using, installing, or accessing my Service, you hereby consent to my Privacy Policy and agree to its <a class="TermsAndConditionsLink" href="#"></a>.</p>
+        </section>
+        <section id=TheDataICollectAndUsage>
+            <h2>THE DATA I COLLECT & USAGE</h2>
+            <h3>HOW DO I COLLECT DATA</h3>
+            <p>The categories of personal data I collect depends on the Services you use, and the requirements of applicable law.</p>
+            <strong>Data you provide me directly.</strong>
+            <ul>
+                <li>Subscription information such as email address</li>
+                <li>Contact information such as full name, e-mail address, phone number and, message</li>
+                <li>Data you provide in connection with surveys, promotions, sweepstakes, competitions and other events</li>
+                <li>Other data you choose to give me(such as the information you provide when you try to connect with me via e-mail)</li>
+            </ul>
+            <strong>Data I collect automatically.</strong>
+            <ul>
+                <li>The web page's visitor's IP address</li>
+                <li>The subscriber's IP address</li>
+                <li>Approximate location data (that I get from the visitor's/customer's IP address)</li>
+                <li>Data about your device, such as device name, operating system, browser type and language</li>
+                <li>Data I collect with cookies and similar technologies (<a href="#CookiesAndSimilarTechnologies">see more below</a>)</li>
+            </ul>
+            <strong>Data I collect indirectly, from my partners.</strong>
+            <p>I also use third-party partners, such as social networking sites, data analytics providers, web application hosting platforms and, advertising networks to supplement information I have about you, such as:</p>
+            <ul>
+                <li>Demographic data (such as to determine the coarse location of your IP address)</li>
+                <li>Data from platforms that the apps run on or data from payment service providers(such as payment verification data)</li>
+                <li>Data for advertising and analytics purposes(such as surveys), so I can provide you a better Service</li>
+                <li>Data that you have made available to me from a third party service(such as Instagram, Facebook or other advertising, social Media or hosting partners) via your privacy settings</li>
+                <li>Data that the web application hosting platform provided me such as traffic volume(amount of visitors in previous month) and, demographic data</li>
+            </ul>
+            <h3>WHY DO I COLLECT DATA</h3>
+            <p>I use your data for a variety of business purposes, such as:</p>
+            <strong>To make the Service work.</strong>
+            <p>To perform the contract, I process data necessary to:</p>
+            <ul>
+                <li>Operate the Service</li>
+                <li>Verify and confirm payments</li>
+                <li>Provide and deliver products and services you request</li>
+                <li>Send you Service-related communications</li>
+            </ul>
+            <strong>To make the Service more suitable for my customers.</strong>
+            <p>To provide a great Service to my customers, I have a legitimate interest to collect and process necessary data to:</p>
+            <ul>
+                <li>Develop and improve the Service and customer experience</li>
+                <li>Manage my relationship with you</li>
+                <li>Provide social features as part of the Service</li>
+                <li>Customize your Service experience</li>
+                <li>Provide you offers in the Service as well as in other websites and services (including by email)</li>
+                <li>Send you related information, such as updates, security alerts, and support messages</li>
+            </ul>
+            <strong>To show personalized advertisements.</strong>
+            <p>To show you personalized advertisements in the Service and elsewhere (including email) I have a legitimate interest to process necessary data to:</p>
+            <ul>
+                <li>Track the content you access in connection with the Service and your online behavior</li>
+                <li>Deliver, target and improve my advertising and the Service</li>
+            </ul>
+            <p>For information on how to opt-out from personalized advertisements, see section <a href="#YourRightsAndOptions">“Your Rights & Options”</a> below.</p>
+            <strong>To keep the Service safe and fair.</strong>
+            <p>Ensuring a level user field in the Service is a top priority for me. For more information on my acceptable use policy; <a class="TermsAndConditionsLink" href="#">Terms and Conditions</a>.</p>
+            <p>In order to keep the Service and its social features safe and fair, to fight fraud and ensure acceptable use otherwise, I have a legitimate interest to process necessary data to:</p>
+            <ul>
+                <li>Analyze and monitor use of the Service and its social features</li>
+                <li>Moderate chats either automatically or manually</li>
+                <li>Take action against fraudulent or misbehaving users</li>
+            </ul>
+            <strong>To analyze, profile and segment.</strong>
+            <p>In all of the above cases and purposes, I may analyze, profile and segment all collected data.</p>
+            <strong>With your consent.</strong>
+            <p>With your consent, I may process your data for additional purposes.</p>
+        </section>
+        <section id="StorageAndSharing">
+            <h2>STORAGE & SHARING</h2>
+            <p>I may store your data manually or electronically. Any data stored electronically will be stored in secure servers, and any data stored manually will be stored in within the servers.</p>
+            <p>I retain your data for as long as your account is active or as needed to provide you the Service. I may for example periodically de-identify unused accounts or subscriptions, and I may regularly review and de-identify unnecessary data. Note that if you ask me to remove your personal data, I will retain your data as necessary for my legitimate business interests, such as to comply with my legal obligations, resolve disputes, and enforce my agreements.</p>
+            <h3>WHO CAN SEE YOUR DATA</h3>
+            <p>Apart from me, your data can be accessed by others in the following situations:</p>
+            <strong>My service providers.</strong>
+            <p>I have vendors who help me to provide the Service. These vendors process your data only at and according to my instructions to provide the Service, and perform tasks such as hosting, support, advertising, analytics and fraud prevention.</p>
+            <strong>Other companies and public authorities.</strong>
+            <p>In order to verify payments (with payment providers such as Paypal) and combat fraud and illegal activity, I may process and disclose data with other companies and organizations and provide it to public authorities in response to lawful requests.</p>
+            <p>I may also disclose your data based on your consent, to comply with the law or to protect the rights, property or safety of us, my customers or others.</p>
+            <strong>Advertising, Social Media & Hosting partners.</strong>
+            <p>The Service includes features from my partners, such as social media interaction tools, cloud storages for hosting web applications, functionalities through application programming interfaces (APIs) or software development kits (SDKs) and in-app advertising. A list of these partners is available down below:</p>
+            <ul>
+                <li><strong>Facebook</strong><br>Privacy Policy: <a href="https://www.facebook.com/about/privacy">https://www.facebook.com/about/privacy</a></li>
+                <li><strong>Google</strong><br>Privacy Policy: <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a></li>
+                <li><strong>Instagram</strong><br>Privacy Policy: <a href="https://privacycenter.instagram.com/policy">https://privacycenter.instagram.com/policy</a></li>
+                <li><strong>Discord</strong><br>Privacy Policy: <a href="https://discord.com/privacy">https://discord.com/privacy</a></li>
+                <li><strong>TikTok</strong><br>Privacy Policy: <a href="https://www.tiktok.com/legal/privacy-policy?lang=en">https://www.tiktok.com/legal/privacy-policy?lang=en</a></li>
+                <li><strong>Github</strong><br>Privacy Policy: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement">https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement</a></li>
+                <li><strong>Linode</strong><br>Privacy Policy: <a href="https://www.linode.com/legal-privacy/">https://www.linode.com/legal-privacy/</a></li>
+            </ul>
+            <p>Last updated: 27 June, 2022</p>
+            <p>These partners may access your data and operate under their own privacy policies. I encourage you to check their privacy policies to learn more about their data processing practices.</p>
+            <p>These partners may access data regarding your activities and your device (such as your IP address, mobile identifiers, page(s) visited, location, time of day). I may also combine and share data I have collected about you with third-party advertising partners. These advertising partners may use this data (and similar data collected from other services) for purposes of delivering targeted advertisements to you when you visit third-party services within their networks. These partners may operate under their own privacy policies. This practice is commonly referred to as “interest-based advertising” or “online behavioral advertising.” If you prefer not to share your personal data with third-party advertising partners, you may follow the instructions in <a href="#YourRightsAndOptions">“Your Rights & Options”</a> below.</p>
+            <h3>INTERNATIONAL DATA TRANSFERS</h3>
+            <p>My Service is global by nature and your data can therefore be transferred to anywhere in the world. Because different countries may have different data protection laws than your own country, I take steps to ensure adequate safeguards are in place to protect your data as explained in this Privacy Policy. Adequate safeguards that I may use include standard contractual clauses approved by EU Commission and other lawful safeguards.</p>
+        </section>
+        <section id="YourRightsAndOptions">
+            <h2>YOUR RIGHTS & OPTIONS</h2>
+            <strong>Opt out of marketing emails and other direct marketing.</strong>
+            <p>You may opt out of receiving promotional communications, such as marketing emails from me by changing your in-app settings(where applicable), by unsubscribing from your email service provider(where applicable), by blocking my email address or by contacting with me. The updated settings may not be effective immediately. Note that you may still continue to receive non-promotional communications from me, such as communications regarding the Service or updates to my Terms of Conditions or this Privacy Policy.</p>
+            <p>You can also opt out from personalized in-app offers through the options provided in the app settings(where applicable).</p>
+            <strong>Opt-out of targeted advertising.</strong>
+            <p>You can opt-out of interest-based advertising on mobile applications by checking the privacy settings of your Android or iOS device and turning off “Allow Apps to Request to Track” or selecting "Limit Ad Tracking"(Apple iOS) or "Opt-out of Interest Based Ads"(Android).</p>
+            <p>You can also opt out from personalized in-app offers through the options provided in the app settings(where applicable).</p>
+            <strong>Access the personal data I hold about you.</strong>
+            <p>If you request, I will provide you a copy of your personal data in an electronic format.</p>
+            <strong>Your other rights.</strong>
+            <p>You also have the right to correct your data, have your data deleted, object how I use or share your data, and restrict how I use or share your data. You can always withdraw your consent.</p>
+            <p>If you wish to exercise any of your data subject rights described above, please use the support options described in <a href="#ContactMe">“Contact Me”</a> below. I will respond to all requests in accordance with applicable laws. To protect your privacy, I may also take additional steps to verify your identity before fulfilling your request, such as by requesting you provide me a purchase receipt or other account information, asking you to link your email address with your account, or asking you to answer questions regarding your activities on my Services. Once you have verified your identity, you may also designate an authorized agent to exercise your rights on your behalf by providing the agent’s contact information to me or my customer support staff, as required by applicable law.</p>
+            <p>You have the right not to receive discriminatory treatment as a result of your exercise of these rights.</p>
+        </section>
+        <section id="CookiesAndSimilarTechnologies">
+            <h2>COOKIES & SIMILAR TECHNOLOGIES</h2>
+            <p>Like most online services, I and my partners use cookies and similar technologies to provide and personalize the Service, analyse use, target advertisements and prevent fraud. Cookies and similar technologies allow  and my partners to store preferences and track your activities within the Service. Note that my partners may operate under their own privacy policies.</p>
+            <p>Me and my partners collect and store information about users' interactions with unaffiliated websites and applications that use my technologies, including cookies and similar tracking technologies. This allows me to infer the presence of a common user or household behind multiple devices or browsers, for instance, and then link those browsers and devices into a device graph. I do so in order to:</p>
+            <ul>
+                <li>Detect and prevent fraud;</li>
+                <li>Allow users to use the Service on one device and pick up seamlessly where they left off on another device(where applicable);</li>
+                <li>Analytics, personalization and attribution;</li>
+                <li>Limit the number of times a user is shown the same advertisement, across all known or inferred devices; and/or</li>
+                <li>Provide personalized advertising on each device that is inferred from the browsing patterns on all of the devices.</li>
+            </ul>
+            <p>You can disable cookies in your browser settings, but some parts of the Service may then not function properly.</p>
+        </section>
+        <section id="Security">
+            <h2>SECURITY</h2>
+            <p>In order to help ensure a secure and safe user experience, I'm continuously developing and implementing administrative, technical and physical security measures to protect your data from unauthorized access or against loss, misuse or alteration.</p>
+            <p>Unfortunately, the transmission of information via the internet is not completely secure. Although I will do my best to protect your personal data, I cannot guarantee the security of data transmitted to my websites and any transmission is at your own risk.</p>
+        </section>
+        <section id="Children">
+            <h2>CHILDREN</h2>
+            <p>Protecting children’s privacy online is very important to me. Generally, my Services are not directed to children under 13(or other age as required by local law), and the Services do not knowingly collect personal data from children, except as described in the following paragraph.</p>
+            <p>For apps that are not directed at children but nonetheless may appeal to them, I take additional steps to limit access to these Services based on the user's age. For these Services, when a user indicates they are under 13(or the applicable age in their territory), I will limit their access to certain features, such as social media and chat features, as well as certain types of notification alerts. I also limit the processing of personal data to only what is necessary to support the internal operations of my Services.</p>
+            <p>Please note that for some of my Services I may use a higher age limit(such as 16) than described in the above two paragraphs. I do this to provide a safe me experience for my customers and to protect young customers.</p>
+            <p>If you are a parent or guardian and wish to review personal data collected from your child, or have that information modified or deleted, you may contact me as described below in The <a href="#ContactMe">Contact Me</a> Section. If I become aware that a child has provided me with personal data contrary to the above, I will delete any personal data I have collected, unless I have a legal obligation to keep it, and terminate the child’s account and/or revert them to the underage experience, as applicable.</p>
+        </section>
+        <section id="ContactMe">
+            <h2>CONTACT ME</h2>
+            <p>If you have questions about data protection, or if you have any requests for resolving issues with your personal data, I encourage you to primarily contact me by submitting a form, from  <a class="ContactPageLinks" href="#"></a>, so I can reply to you more quickly. Alternatively, you may also contact with me using the fallowing information:</p>
+            <p>Name of the controller: Doga Ege Ozden</p>
+            <p>Address: 13 boot terrace, M3J 0A1, Toronto, ON, Canada</p>
+            <p>Attention: Privacy</p>
+            <p>E-mail: <a href="mailto:dogaegeozden@gmail.com">dogaegeozden@gmail.com</a></p>
+        </section>
+        <p>My Privacy Policy were created with the help of the <a href="https://www.privacypolicygenerator.info/">Privacy Policy Generator</a>.</p>
+    </div>
+</div>
+<script type="text/javascript">
+// VARIABLES: You can update all the links in your privacy policy, fast and easy, by just changing these variables
+// A variable for the web page's url
+let theWebPageURL = "https://www.dogaegeozden.com";
+// A variable for the web page's url's text content
+let theWebPageLinkTextCont = "www.dogaegeozden.com";
+// A variable for the terms and conditions page's url
+let theTermsAndConditionsURL = "https://www.dogaegeozden.com/terms_and_conditions";
+// A variable for the terms and conditions link's text content
+let theTermsAndConditionsLinkTextCont = "Terms And Conditions";
+// A variable for the contact page's url
+let contactPageUrl = "https://www.dogaegeozden.com/contact";
+// A variable for contact page link's text content
+let contactPageLinkTextCont = "The Contact Page";
+
+// ARRAYS/QUERY SETS
+// A query set for all terms and condition links
+let theTermsandConditionsLinks = document.querySelectorAll(".TermsAndConditionsLink");
+// A query set for all the elements that has TheWebPageLink class value
+let theWebPageLinks = document.querySelectorAll(".TheWebPageLink");
+// A query set for all the links that has "TheWebPageURLLink" class value
+let theWebPageURLLinks = document.querySelectorAll(".TheWebPageURLLink");
+// A query set for all contact page links
+let contactPageLinks = document.querySelectorAll(".ContactPageLinks");
+
+// LOOPS
+// For each link in the query set. Set the link's href attribute to the url variable and set the link's text content to text content variable.
+for ( let i = 0 ; i < theWebPageLinks.length ; i++ ) {
+    theWebPageLinks[i].setAttribute("href", theWebPageURL);
+    theWebPageLinks[i].textContent = theWebPageLinkTextCont;
+}
+// A loop that iterates through each link one by one in the query set and set it's href value to theWebPageURL variable and set it's text content to theWebPageURL variable.
+for (let x = 0 ; x < theWebPageURLLinks.length ; x++ ) {
+    theWebPageURLLinks[x].setAttribute("href", theWebPageURL);
+    theWebPageURLLinks[x].textContent = theWebPageURL;
+}
+// For each link in the query set, set the link's href attribute to the url variable and set it's text content to text content variable
+for ( let a = 0 ; a < theTermsandConditionsLinks.length ; a++ ) {
+    theTermsandConditionsLinks[a].setAttribute("href", theTermsAndConditionsURL);
+    theTermsandConditionsLinks[a].textContent = theTermsAndConditionsLinkTextCont;
+}
+// For each link in the query set, set the link's href attribute to the url variable and set it's text content to text content variable
+for ( let b = 0 ; b < contactPageLinks.length ; b++ ) {
+    contactPageLinks[b].setAttribute("href", contactPageUrl);
+    contactPageLinks[b].textContent = contactPageLinkTextCont;
+}
+</script>
+{% endblock %}

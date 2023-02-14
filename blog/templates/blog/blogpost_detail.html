@@ -1,0 +1,208 @@
+<!-- Extending the base html with this html file -->
+{% extends "base.html" %}
+
+<!-- Overwriting the metaDescription block -->
+{% block metaDescription %}
+<meta name=description content="{{ post_detail.text }}">
+{% endblock %}
+
+<!-- Overwriting the title block -->
+{% block title %}
+<title>{{ post_detail.title }} | Details </title>
+{% endblock %}
+
+<!-- Overwriting the stylesheet block -->
+{% block stylesheet %}
+{% load static %}
+<link rel='stylesheet' href='{% static "css/blog/blogpost_detail.css" %}'>
+{% endblock %}
+
+<!-- Overwriting the mainBox block -->
+{% block mainBox %}
+<div class='PostDetailPageBox'>
+    <p class='PostDateP'>{{ post_detail.date }}</p>
+
+    <h2 class='PostTitleH'>{{ post_detail.title }}</h2>
+
+    {% if post_detail.image %}
+    <a class='Link' target='_blank' href="{{ post_detail.image.url }}">
+        <img class='PostImg' src="{{ post_detail.image.url }}" alt="{{ post_detail.alt }}">
+    </a>
+    {% elif post_detail.youtube_url %}
+    <div class="PostVideo">
+        <iframe width='100%' height='100%' class='video' src="{{ post_detail.youtube_url }}" alt='{{ post_detail.alt }}' loading="lazy" frameborder="0" allowfullscreen=""></iframe>
+    </div>
+    {% elif post_detail.video %}
+    <video class='PostVideo' controls>
+        <source src="{{ post_detail.video.url }}" type="video/mp4" alt="{{ post_detail.alt }}">
+    </video>
+    {% endif %}
+
+    <div class='PostTextBoxD'>
+        <p class="PostTextP">{{ post_detail.text }}</p>
+    </div>
+
+    <div class="PostsLikeAndShareBox">
+        <p class="LikeCount PLSBElement">{{ post_like_count }}</p>
+        
+        {% if post_like_objs.like_status == "n" %}
+        <i class="fa-regular fa-heart LikeBtnFalse PLSBElement"></i>
+        {% elif post_like_objs.like_status == "l" %}
+        <i class="fa-solid fa-heart LikeBtnTrue PLSBElement"></i>
+        {% else %}
+        <i class="fa-regular fa-heart LikeBtnFalse PLSBElement"></i>
+        {% endif %}
+        <i class="fa-solid fa-share ShareBtn PLSBElement"></i>
+    </div>
+
+    <div class="SocialMediaShareBox">
+        <a name="Facebook" class="SocialMediaShareBtn" target="_blank" href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'facebook-share-dialog','width=626,height=436');return false;"><img class="FacebookShareBtn" src="{% static 'assets/facebook_2x.png' %}" alt="facebook icon"></a>
+        <a name="Twitter" class="SocialMediaShareBtn" target="_blank" href='https://twitter.com/intent/tweet?text=Hey check this out; https://dogaege.pythonanywhere.com/blog/{{ p.title }}'><img class="TwitterShareBtn" src="{% static 'assets/twitter_2x.png' %}" alt="twitter icon"></a>
+    </div>
+
+    <div class="FormBox">
+        <form action='{{ post_detail.url }}' method="POST">{% csrf_token %}{{ comment_form.as_table }}
+            <input type="submit" name="commentbtn" class="SubmitBtn" value="Comment!">
+        </form>
+    </div>
+
+    <div class="CommentBox CRS">
+        <h3 class='CT'>Comments [{{ number_of_comments }}]</h3>
+
+        {% if post_detail.comments.all %}
+        <ul>
+            {% for comment in post_detail.comments.all %}
+            <li>{{ comment.name }} - {{ comment.comment_time }} - {{ comment.text}}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+    </div>
+
+</div>
+{% endblock %}
+
+<!-- Overwriting the js block -->
+{% block js %}
+<!-- Creating a script which displays the SocialMediaShare box when the element which has ShareBtn class is clicked..  -->
+<script type="text/javascript">
+
+    // Creating a variable called shareBtn by selecting the element which has ShareBtn class from the DOM.
+    let shareBtn = document.querySelector(".ShareBtn");
+
+    // Connecting the displaySMSB function with the shareBtn in a way that the function will going to trigger with a click signal.
+    shareBtn.addEventListener("click", displaySMSB);
+
+    function displaySMSB() {
+        // A function which change's the display attribute of the element which has the SocialMediaShareBox class to show the box to the user.
+
+        // Creating a variable called socialMediaBox by selecting the element which has SocialMediaShare box from the DOM.
+        let socialMediaBox = document.querySelector(".SocialMediaShareBox");
+
+        // Checking if the socialMediaBox variable's display attribute's value is equal to inline-block.
+        if (socialMediaBox.style.display == "inline-block") {
+
+            // Changing the element's display attribute's value
+            socialMediaBox.style.display = "none";
+        
+        // Checking if the socialMediaBox variable's display attribute's value is not equal to inline-block.
+        } else {
+
+            // Changing the element's display attribute's value
+            socialMediaBox.style.display = 'inline-block';
+        };
+    }
+</script>
+
+<!-- Creating a script which sends a post request when user clicked to the like button.  -->
+<script type="text/javascript">
+
+    // Creating a variable called likeBtn by selecting the element which has LikeBtnFalse class from the DOM.
+    let likeBtn = document.querySelector('.LikeBtnFalse'),
+    // Creating a query set called socialMediaShareBtns by selecting all the elements which has SocialMediaShareBtn class.
+        socialMediaShareBtns = document.querySelectorAll(".SocialMediaShareBtn");
+
+    // Checking if the likeBtn element is not exists. Hint: If the likeBtn variable's value if equal to false it means the element is not exist in the DOM.
+    if (likeBtn === null ) {
+        // Changing the likeBtn variable's value by selecting the element which has LikeBtnTrue class from the DOM.
+        likeBtn = document.querySelector('.LikeBtnTrue');
+
+    // Checking if the likeBtn element is already exists.
+    } else {
+        // Changing the likeBtn varialbe's value by selecting the element which has LikeBtnFalse class from the DOM.
+        likeBtn = document.querySelector('.LikeBtnFalse');
+    }
+
+    // Connecting the likeBtn with the changeLikeStatus function, in a way the function will going to trigger with a click signal.
+    likeBtn.addEventListener("click", changeLikeStatus);
+
+    function changeLikeStatus() {
+        // A function which changes the likeStatus and sends a post request with the new status
+        
+        // Capturing the csrf token
+        var csrf = "{{ csrf_token }}";
+
+        // Checking the likeBtn's class attribute's value is including LikeBtnTrue string.
+        if (likeBtn.getAttribute("class").includes("LikeBtnTrue")) {
+
+            // Setting the likeStatus's value to n which stands for not liked
+            likeStatus = "n"
+            
+        // Checking if the likeBtn's class attribute isn't including the LikeBtnTrue string
+        } else {
+
+            // Setting the like status to l which stands for liked
+            likeStatus = "l"
+    
+        };
+
+        // Sending a post request
+        $.ajax({
+            url: '',
+            type: 'POST',
+            data: {
+                requestId: "post_like_request",
+                likeStatus: likeStatus,
+                csrfmiddlewaretoken: csrf,
+            },
+        });
+        
+        // Reloading the current URL.
+        location.reload();
+    }
+
+    function addPostRequestSendingFunctionality(){
+        // A function which add post request sending ability to social media buttons.
+
+        // Iterating over all the elements in the array one by one
+        for (let i = 0; i < socialMediaBtns.length; i++) {
+
+            // Creating a variable called platformCTShare from the social media share button's name
+            let platformCTShare = socialMediaShareBtns[i].getAttribute("name");
+
+            // Connecting each social media share button with a sendSocialMediaShareButtonClickInfo function in a way that the functions will going to trigger with a click signal. 
+            socialMediaShareBtns[i].addEventListener("click", sendSocialMediaShareButtonClickInfo);
+
+            function sendSocialMediaShareButtonClickInfo () {
+                // A function which sends social media share button click info with a post request.
+                
+                // Creating a variable called csrf to by pass the csrf token security  
+                var csrf = "{{ csrf_token }}";
+
+                // Sending a post request.
+                $.ajax({
+                    url: '',
+                    type: 'POST',
+                    data: {
+                        requestId: "share_on_social_media_request",
+                        platformCTShare: platformCTShare,
+                        csrfmiddlewaretoken: csrf,
+                    },
+                });
+            }
+        }
+    }
+    // Calling the addPostRequestSendingFunctionality function.
+    addPostRequestSendingFunctionality();
+</script>
+{% endblock %}

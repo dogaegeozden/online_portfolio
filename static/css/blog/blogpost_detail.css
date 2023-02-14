@@ -1,0 +1,264 @@
+
+/* MEDIA QUERIES SMALL -> BIG */
+
+
+/* JioPhone 2 */
+@media (min-width: 239px) {
+    .PostDetailPageBox {
+        width: 90%;
+        margin: 30px auto;
+        display: block;
+        padding: 10px;
+    }
+
+    .PostDateP {
+        float: right;
+        display: inline-block;
+        text-align: right;
+    }
+
+    .PostTitleH {
+        display: inline-block;
+        text-align: center;
+    }
+
+    .PostImg {
+        max-width: 100%;
+        margin: auto;
+        height: auto;
+        display: block;
+    }
+
+    .PostVideo {
+        width: 100%;
+        height: 200px;
+    }
+
+    .PostTextBoxD{
+        min-height: 20px;
+        height: auto;
+        padding: 5px;
+    }
+
+    .PostTextP{
+        margin: 10px 0px 10px 0px;
+    }
+
+    input[name='name'] {
+        margin-bottom: 10px;
+        width: 100%;
+        height: 30px;
+    }
+
+    textarea[name='text'] {
+        width: 100%;
+        height: 100px;
+        margin-bottom: 10px;
+    }
+
+    label {
+        display: inline-block;
+        width: 100%;
+        margin: 0 auto 5px auto;
+        text-align: left;
+    }
+
+    .SocialMediaShareBox {
+        width: 100%;
+        height: auto;
+        width: auto;
+        padding: 5px;
+        min-height: 30px;
+        margin-bottom: 20px;
+        display: none;
+    }
+
+    .PostsLikeAndShareBox {
+        height: auto;
+        width: 100%;
+        display: inline-block;
+        padding: 10px;
+    }
+    
+    .LikeBtnTrue {
+        color: red;
+        float: left;
+        display: inline-block;
+        height: 100%;
+        margin: auto;
+    }
+    
+    .fa-heart {
+        height: 100%;
+    }
+    
+    .fa-heart:hover {
+        cursor: pointer;
+    }
+    
+    .PLSBElement {
+        margin: auto 2px;
+    }
+    
+    .LikeCount {
+        display: inline-block;
+        float: left; 
+        height: 100%;  
+        margin: -3px 3px 0 0;
+    }
+    
+    .fa-share:hover {
+        cursor: pointer;
+    }
+
+    .FacebookShareBtn, .TwitterShareBtn {
+        width: 25px;
+        height: 25px;
+        margin: 2px;
+        float: left;
+        display: block;
+    }
+
+    .FacebookShareBtn:hover, .TwitterShareBtn:hover {
+        width: 28px;
+        height: 28px;
+        transition: 0.5s ease;
+    }
+    
+    .FormBox {
+        min-height: 30px;
+        height: auto;
+        padding: 5px;
+    }
+
+    .SubmitBtn {
+        display: inline-block;
+        outline: none;
+        cursor: pointer;
+        font-weight: 600;
+        border-radius: 3px;
+        padding: 10px 20px;
+        border: 0;
+        color: white;
+        background: #1de9b6;
+        line-height: 1.15;
+    }
+    
+    .SubmitBtn:hover {
+        transition: all .1s ease;
+        box-shadow: 0 0 0 0 #fff, 0 0 0 3px #1de9b6;
+    }
+
+    .CommentBox{
+        padding: 5px;
+        margin-top: 20px;
+    }
+    
+}
+
+
+/* Galaxy Fold */
+@media (min-width: 279px) {}
+
+/* I Phone 5/SE, I phone 4, Nokia Lumia 520 */
+@media (min-width: 319px) {}
+
+/* Galaxy Note 3, Galaxy Note 2, Galaxy S3, Galaxy S5, Nexus 5, Moto G4, Microsoft Lumia950, */
+@media (min-width: 359px) {}
+
+/* Iphone 6/7/8 */
+@media (min-width: 374px) {
+    .PostDetailPageBox {
+        margin: 50px auto;
+    }
+}
+
+/* LG Optimus L70, Nexus 4 */
+@media (min-width: 383px) {}
+
+/* Iphone 12 Pro */
+@media (min-width: 389px) {}
+
+/* Iphone 6,7,8 Plus, Nexus 6P, Nexus 6, Nexus 5X */
+@media (min-width: 412px) {
+    .PostVideo {
+        width: 100%;
+        height: 300px;
+    }
+}
+
+/* Surface Duo */
+@media (min-width: 539px) {
+    .PostVideo {
+        height: 400px;
+    }
+}
+
+/* Black Berry Play Book */
+@media (min-width: 599px) {}
+
+
+/* Microsoft Lumia 550 */
+@media (min-width: 639px) {
+    .LikeCount {
+        margin: -4px 3px 0 0;
+    }
+}
+
+
+/* Ipad */
+@media (min-width: 767px) {
+    .PostDetailPageBox {
+        margin: 50px auto;
+    }
+    .FacebookShareBtn, .TwitterShareBtn {
+        width: 30px;
+        height: 30px;
+    }
+    .FacebookShareBtn:hover, .TwitterShareBtn:hover {
+        width: 33px;
+        height: 33px;
+    }
+}
+
+/* Kindle Fire HDX */
+@media (min-width: 799px) {}
+
+/* I pad Pro */
+@media (min-width: 1023px) {
+    .PostDetailPageBox {
+        margin: 120px auto;
+        max-width: 1200px;
+    }
+    .PostVideo {
+        height: 600px;
+        max-height: 900px;
+    }
+}
+
+/* Laptop with MDPI screen, Laptop with touch */
+/* Here might be the part that you reached the normal computer measurements so check eventhough you writing some media query for bigger screens is this media query applies */
+@media (min-width: 1279px) {
+    .PostTitleH {
+        font-size: 40px;
+        margin-bottom: 80px;
+    }
+    .SocialMediaShareBox {
+        width: 80%;
+        min-height: 60px;
+        height: auto;
+        margin-bottom: 30px;
+    }
+    .FacebookShareButton, .TwitterShareButton {
+        width: 40%;
+    }
+    .FacebookShareButton:hover, .TwitterShareButton:hover {
+        width: 42%;
+    }
+    .CT {
+        margin-top: 40px;
+    }
+}
+
+/* Laptop with HiDPI screen */
+@media (min-width: 1439px) {}

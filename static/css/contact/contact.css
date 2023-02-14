@@ -1,0 +1,204 @@
+/* MEDIA QUERIES SMALL -> BIG */
+
+
+/* JioPhone 2 */
+@media (min-width: 239px) {
+	.ContactPageBox {
+		width: 90%;
+		margin: 30px auto;
+		display: block;
+		min-height: 100px;
+		height: auto;
+		overflow: hidden;
+	}
+
+	.ContactPageBox h1 {
+		text-align: center;
+	}
+
+	.VisualContentBox {
+		min-height: 100px;
+		width: 100%;
+		margin: 0px auto 20px auto;
+		height: auto;
+		float: left;
+		display: block;
+	}
+
+	.ContactPMainImg {
+		width: 100%;
+		height: 100%;
+	}
+
+	.FormBox {
+		width: 100%;
+		margin: 0;
+		float: left;
+		display: block;
+		border-radius: 5px;
+		background-color: #EDF2F4;
+		padding: 20px;
+	}
+
+	.FormBox img {
+		width: 100%;
+		margin-bottom: 30px;
+		height: auto;
+	}
+
+	input[name="first_name"], input[name="last_name"], input[name="email"], input[name="phone_number"], input[name="message"] {
+		padding: 4px 7px;
+		margin: 4px auto 12px auto;
+		width: 100%;
+		display: inline-block;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		box-sizing: border-box;
+	}
+
+	input[name='msgSendBtn'] {
+		width: 100%;
+		background-color: rgb(255, 61, 170);
+		color: white;
+		padding: 10px 12px;
+		margin: 0;
+		border: none;
+		border-radius: 4px;
+		cursor: pointer;
+	}
+
+	input[name='msgSendBtn']:hover {
+		background-color: rgb(39, 253, 245);
+		transition: 0.5s ease;
+	}
+}
+
+/* Galaxy Fold */
+@media (min-width: 279px) {}
+
+/* I Phone 5/SE, I phone 4, Nokia Lumia 520 */
+@media (min-width: 319px) {
+	input[name="first_name"], input[name="last_name"], input[name="email"], input[name="phone_number"], input[name="message"] {
+		padding: 5px 8px;
+	}
+
+	input[name='msgSendBtn'] {
+		padding: 11px 13px;
+	}
+}
+
+/* Galaxy Note 3, Galaxy Note 2, Galaxy S3, Galaxy S5, Nexus 5, Moto G4, Microsoft Lumia950, */
+@media (min-width: 359px) {
+	input[name="first_name"], input[name="last_name"], input[name="email"], input[name="phone_number"], input[name="message"] {
+		padding: 6px 9px;
+	}
+
+	input[name='msgSendBtn'] {
+		padding: 11px 13px;
+	}
+}
+
+/* Iphone 6/7/8 */
+@media (min-width: 374px) {
+	.ContactPageBox {
+		width: 85%;
+	}
+}
+
+/* LG Optimus L70, Nexus 4 */
+@media (min-width: 383px) {}
+
+/* Iphone 12 Pro */
+@media (min-width: 389px) {}
+
+/* Iphone 6,7,8 Plus, Nexus 6P, Nexus 6, Nexus 5X */
+@media (min-width: 412px) {
+	.ContactPageBox {
+		margin: 50px auto;
+	}
+
+	input[name="first_name"], input[name="last_name"], input[name="email"], input[name="phone_number"], input[name="message"] {
+		padding: 7px 10px;
+	}
+
+	input[name='msgSendBtn'] {
+		padding: 12px 17px;
+	}
+}
+
+/* Surface Duo */
+@media (min-width: 539px) {
+	input[name="first_name"], input[name="last_name"], input[name="email"], input[name="phone_number"], input[name="message"] {
+		padding: 9px 12px;
+	}
+
+	input[name='msgSendBtn'] {
+		padding: 12px 17px;
+	}
+}
+
+/* Black Berry Play Book */
+@media (min-width: 599px) {
+	.ContactPageBox {
+		width: 75%;
+	}
+}
+
+
+/* Microsoft Lumia 550 */
+@media (min-width: 639px) {}
+
+
+/* Ipad */
+@media (min-width: 767px) {
+	.ContactPageBox {
+		margin: 90px auto;
+	}
+}
+
+/* Kindle Fire HDX */
+@media (min-width: 799px) {}
+
+/* I pad Pro */
+@media (min-width: 1023px) {
+	.ContactPageBox {
+		margin: 120px auto;
+		width: 60%;
+	}
+
+	input[name="first_name"], input[name="last_name"], input[name="email"], input[name="phone_number"], input[name="message"] {
+		padding: 10px 13px;
+		margin-bottom: 15px;
+	}
+
+	input[name='msgSendBtn'] {
+		padding: 13px 18.5px;
+	}
+}
+
+/* Laptop with MDPI screen, Laptop with touch */
+/* Here might be the part that you reached the normal computer measurements so check eventhough you writing some media query for bigger screens is this media query applies */
+@media (min-width: 1279px) {
+	.ContactPageBox {
+		width: 100%;
+		display: inline-block;
+	}
+
+	.VisualContentBox, .FormBox {
+		width: 45%;
+		margin: auto 2.5%;
+	}
+
+	input[name="first_name"], input[name="last_name"], input[name="email"], input[name="phone_number"], input[name="message"] {
+		padding: 12px 20px;
+	}
+
+	input[name='msgSendBtn'] {
+		padding: 14px 20px;
+		margin: 8px 0;
+	}
+}
+
+
+/* Laptop with HiDPI screen */
+@media (min-width: 1439px) {}

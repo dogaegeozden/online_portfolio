@@ -1,0 +1,75 @@
+<!-- Extending the base html with this html file -->
+{% extends "base.html" %}
+
+<!-- Overwriting the meta description block -->
+{% block metaDescription %}
+<meta name="description" content="{{ all_meta_description_objs.last.text }}">
+{% endblock %}
+
+<!-- Overwriting the title block -->
+{% block title %}
+<title>Doga Ege Ozden | Blog</title>
+{% endblock %}
+
+<!-- Overwriting the stylesheet block -->
+{% block stylesheet %}
+{% load static %}
+<link rel='stylesheet' href="{% static 'css/blog/blog.css' %}">
+{% endblock %}
+
+<!-- Overwriting the mainBox block -->
+{% block mainBox %}
+<div class="BlogPageBox">
+    <h1>BLOG</h1>
+
+    <div class="SubscriptionBox">
+        <form action="." method="POST">{% csrf_token %}
+            <div class="TopRowofForm">
+                <label for="id_email">E-mail:</label>
+                <input type="email" name="email" maxlength="350" required="" id="id_email">
+            </div>
+            <input class='SubscribeBtn CENM0' type="submit" name="subscribebtn" value="Subscribe!">
+        </form>
+    </div>
+
+    {% if all_blog_post_objs.first.title %}
+    <div class="BlogBox">
+        {% for p in all_blog_post_objs %}
+        <a href="{{ p.url }}/blog/#{{ p.title }}" style="text-decoration:none!important;color:black;"><section id="{{ p.title }}" class="PostBox">
+
+            <p class="PDate">{{ p.date }}</p>
+
+            <h3 class="PTitle">{{ p.title }}</h3>
+
+            {% if p.image %}
+            <a class="Link" target="_blank" href="{{ p.image.url }}">
+                <div class="PostImageBox">
+                    <img class="PImg" src="{{ p.image.url }}" alt="{{ p.alt }}">
+                </div>
+            </a>
+
+            {% elif p.youtube_url %}
+            <div class="PVid" controls>
+                <iframe width='100%' height='100%' class='video' src="{{ p.youtube_url }}" alt='{{ p.alt }}' loading="lazy" frameborder="0" allowfullscreen=""></iframe>
+            </div>
+
+            {% elif p.video %}
+            <video class="PVid" controls>
+                <source src="{{ p.video.url }}" type="video/mp4" alt="{{ p.alt }}">
+            </video>
+            {% endif %}
+
+            <div class="BlogText">
+                <p class="PText">{{ p.text }}</p>
+            </div>
+
+            <a class="PostDetailPageLink" href="{{ p.get_absolute_url }}"><button type="button" name="button" class='DetailsBtn'>Details</button></a>
+        
+        </section></a>
+        {% endfor %}
+
+    </div>
+    {% endif %}
+
+</div>
+{% endblock %}

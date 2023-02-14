@@ -1,0 +1,181 @@
+<!-- Extending the base html with this html file -->
+{% extends "base.html" %}
+
+<!-- Overwriting the metaDescription block -->
+{% block metaDescription %}
+<meta name="description" content="{{ all_meta_description_objs.last.text }}">
+{% endblock %}
+
+<!-- Overwriting the title block -->
+{% block title %}
+<title>Doga Ege Ozden | Home</title>
+{% endblock %}
+
+<!-- Overwriting the stylesheet block -->
+{% block stylesheet %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/home/home.css' %}">
+{% endblock %}
+
+<!-- Overwriting the mainBox block -->
+{% block mainBox %}
+{% if all_profile_picture_objs.first.image or all_bio_objs.first.text %}
+<div class="ProfileBox">
+    <!-- A div for biography contents -->
+    <div class="BioBox">
+        {% if all_profile_picture_objs.first.image %}
+        <div class="BioPicBox">
+            <a target="_blank" href="{{ all_profile_picture_objs.last.image.url }}"><img id="{{ all_profile_picture_objs.last.image }}" class="ProfilePic" src="{{ all_profile_picture_objs.last.image.url }}" alt="{{ all_profile_picture_objs.last.alt }}"></a>
+        </div>
+        {% endif %}
+
+        {% if all_bio_objs.first.text %}
+        <div class="BioTextBox">
+            <div class="BioTextBoxContent">
+                <hr class="Line1">
+                <h1>DOGA EGE OZDEN</h1>
+                <p>{{ all_bio_objs.last.text }}</p>
+                <hr class="Line2">
+            </div>
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- A div for language and tool contents -->
+    {% if all_tools_and_languages_main_visual_objs.first.image %}
+    <div class="LanguagesAndToolsBox">
+        <div class="ToolsAndLanguagesLeft">
+            <div class="TALTB">
+                <h2>{{ all_tools_and_languages_main_visual_objs.last.title }}</h2>
+            </div>
+            <div class="TALIB">
+                {% for lot in all_tools_and_languages_objs %}
+                <img id="{{ lot.image }}" class="ToolIcon" src="{{ lot.icon_url }}" title="{{ lot.title }}" alt="{{ lot.alt }}"/>&nbsp;
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="ToolsAndLanguagesRight">
+            <a target="_blank" href="{{ all_tools_and_languages_main_visual_objs.last.image.url }}"><img id="{{ all_tools_and_languages_main_visual_objs.last.image }}" class="TALMI" src="{{ all_tools_and_languages_main_visual_objs.last.image.url }}" alt="{{ all_tools_and_languages_main_visual_objs.last.alt }}"/></a>
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- A div for acivity contents -->
+    {% if all_activity_objs.first.image %}
+    <div class="Activities">    
+        <h2>ACTIVITIES</h2>
+        {% for a in all_activity_objs %}
+        <div class="SpecificActivityBox">
+            <div class="SAIB Reveal">
+                <a target="_blank" href="{{ a.image.url }}"><img id="{{ a.image }}" class="ActivityImg" src="{{ a.image.url }}" alt="{{ a.alt }}"></a>
+            </div>
+
+            <div class="SATB Reveal">
+                <h3>{{ a.title }}</h3>
+                <p>{{ a.description }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+</div>
+{% endif %}
+{% endblock %}
+
+<!-- Overwriting the js block -->
+{% block js %}
+<!-- Calling external javascript file called activity_view.js -->
+<script src="{% static 'js/home/activity_view.js' %}"></script>
+
+<!-- A javascript code that sends a post request to the server when a user clicks to specific elements. -->
+<script type="text/javascript">
+    // Creating a variable called profilePicture by selecting the element which has ProfilePic class.
+    let profilePicture = document.querySelector(".ProfilePic"),
+    // Creating a query set from all of the social media buttons.
+        activityImages = document.querySelectorAll(".ActivityImg"),
+    // Identifying the profile picture choice from the element's id
+        profilePictureChoice = profilePicture.getAttribute("id"),
+    // Creating a variable called toolsAndLanguages 
+        toolsAndLanguagesImg = document.querySelector(".TALMI"),
+    // Creating a variable called toolsAndLanguagesImageChoice from the toolsAndLanguagesImg element's id attribute. 
+        toolsAndLanguagesImageChoice = toolsAndLanguagesImg.getAttribute("id");
+
+    // Adding an event listener to every single activity image in the array
+    profilePicture.addEventListener("click", sendProfilePictureClickInfo);
+    // Connecting the toolsAndLanguages element with the sendToolsAndLanguagesImageClickInfo function as the function will going to trigger with a click
+    toolsAndLanguagesImg.addEventListener("click", sendToolsAndLanguagesImageClickInfo);
+
+    function addSendRequestFunctionality() {
+        // A function which sends a post request. 
+
+        // Iterating over the array one by one
+        for (let activityImage = 0; activityImage < activityImages.length; activityImage++ ) {
+
+            // Identifying the activity image choice from the element's id
+            let activityImageChoice = activityImages[activityImage].getAttribute("id");
+
+            // Adding an event listener to every single activity image in the array
+            activityImages[activityImage].addEventListener("click", sendActivityImageChoiceInfo);
+
+            // Creating a separate function for every activity image element in the array
+            function sendActivityImageChoiceInfo () {
+                // Capture the csrf token
+                var csrf = "{{ csrf_token }}";
+
+                // Sending a post request
+                $.ajax({
+                    url: '',
+                    type: 'POST',
+                    data: {
+                        id: "activity_image_choice_request",
+                        activityImageChoice: activityImageChoice,
+                        csrfmiddlewaretoken: csrf,
+                    },
+                });
+            }
+        }
+    }
+
+    // Creating a separate function for every single social media element in the array
+    function sendProfilePictureClickInfo () {
+        // Capture the csrf token
+        var csrf = "{{ csrf_token }}";
+
+        // Sending a post request
+        $.ajax({
+            url: '',
+            type: 'POST',
+            data: {
+                id: "profile_picture_choice_request",
+                profilePictureChoice: profilePictureChoice,
+                csrfmiddlewaretoken: csrf,
+            },
+        });
+    }
+
+    function sendToolsAndLanguagesImageClickInfo(){
+        // A function which sends the tools and languages image's click data as a post request to the server
+
+        // Capture the csrf token
+        var csrf = "{{ csrf_token }}";
+
+        // Sending a post request
+        $.ajax({
+            url: '',
+            type: 'POST',
+            data: {
+                id: "tools_and_languages_images_click_data_request",
+                toolsAndLanguagesImageChoice: toolsAndLanguagesImageChoice,
+                csrfmiddlewaretoken: csrf,
+            },
+        });
+    }
+
+    // Calling the addSendRequestFunctionality function.
+    addSendRequestFunctionality();
+
+</script>
+
+{% endblock %}

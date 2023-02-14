@@ -1,0 +1,766 @@
+/* GLOBAL STYLES */
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+	box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
+body {
+	width: 100%;
+	height: auto;
+	margin: 0px;
+	--cookie-notice-load-time: 300ms;
+	--nav-link-load-time: 400ms;
+	--main-section-load-time: 600ms;
+	--social-media-box-load: 700ms;
+	--footer-load-time: 800ms;
+}
+
+/* TEXT STYLES */
+main h1 {
+	color: black;
+ 	font-family: 'Poppins', sans-serif;
+}
+
+main h2 {
+	font-weight: 120;
+}
+
+main h3 {
+	font-weight: 400;
+	margin-top: 0;
+}
+
+main h2, main h3, main h4, main h5 {
+	font-family: 'Noto Sans', sans-serif;
+}
+
+p, strong, li, button, label, input[type='submit'] {
+	font-family: 'Montserrat', sans-serif;
+}
+
+p, strong, ul, li, h1, h2, h3, h4, h5, label {
+	margin: 10px 0px;
+}
+
+footer a, footer p, footer li {
+	font-family: 'Comfortaa', cursive;
+	font-size: 15px;
+}
+
+header a, .TopNav button {
+	font-family: 'Raleway', sans-serif;
+}
+
+/* PAGE FORMAT -> HEADER, MAIN, FOOTER */
+header, main {
+	height: auto;
+}
+
+header, main, footer {
+	overflow: hidden;
+	margin: 0;
+}
+
+header {
+	text-align: center;
+}
+
+main {
+	min-height: 100px;
+	animation-name: main-section-load;
+	animation-duration: var(--main-section-load-time);
+	animation-timing-function: ease-in;
+	animation-delay: var(--nav-link-load-time);
+	animation-fill-mode: forwards;
+	opacity: 0;
+}
+
+@keyframes main-section-load {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 100%;
+	}
+}
+
+footer {
+    background-color: #f9f9f9;
+    width: 100%;
+	animation-name: footer-load;
+	animation-duration: var(--footer-load-time);
+	animation-timing-function: ease-in;
+	animation-delay: var(--main-section-load-time);
+	animation-fill-mode: forwards;
+	transform: translateY(100%);
+}
+
+@keyframes footer-load {
+	0% {
+		transform: translateY(100%);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}
+
+
+/* MEDIA QUERIES SMALL -> BIG */
+
+
+/* JioPhone 2 */
+@Media (min-width: 239px) {
+	.CookieNotice {
+		background: #171717;
+		position: fixed;
+		z-index: 3;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		width: 100%;
+		opacity: 0.97;
+		display: inline-block;
+		height: 210px;
+		padding: 5px 10px;
+		animation: cookie-notice-load 300ms ease-in;
+	}
+	
+	@keyframes cookie-notice-load {
+		0% {
+			transform: translateY(100%);
+		}
+		100% {
+			transform: translateY(0);
+		}
+	}
+
+	.LinkAndTextBox {
+		width: 100%;
+		height: 150px;
+	}
+
+	.CookieNoticeFormBox {
+		width: 100%;
+		height: 70px;
+		padding: 0;
+	}
+
+	.LinkAndTextBox, .CookieNoticeFormBox {
+		display: block;
+		float: left;
+		position: relative;
+		top: 0;
+	}
+
+	.CookieNoticeText, .LearnMoreLink {
+		color: white;
+		text-align: left;
+		float: left;
+		width: 100%;
+	}
+	
+	.LearnMoreLink {
+		text-decoration: none;
+	}
+	
+	.CookieNoticeForm {
+		height: auto;
+	}
+
+	.IGotIt {
+		display: block;
+		background: #2d85f3;
+		border: none;
+		border-radius: 5px;
+		position: static;
+		top: 0;
+		margin: auto;
+		font-weight: bold;
+		color: white;
+		padding: 12px 30px;
+	}
+	
+	.IGotIt:hover {
+		background: #4593F4;
+		cursor: pointer;
+	}
+
+	/* NAVIGATION BAR */
+	.TopNav {
+		overflow: hidden;
+		padding: 0.59px 0px;
+	}
+
+	.NavBarLink {
+		animation-name: nav-link-load;
+		animation-duration: var(--nav-link-load-time);
+		animation-timing-function: ease-in;
+		animation-delay: var(--cookie-notice-load-time);
+		animation-fill-mode: forwards;
+		transform: scale(0);
+	}
+
+	@keyframes nav-link-load {
+		0% {
+			transform: scale(0);
+		}
+		90% {
+			transform: scale(1.1);
+		}
+		100% {
+			transform: scale(1);
+		}
+	}
+
+	/* Style the links inside the navigation bar */
+	.TopNav a {
+		float: left;
+		display: block;
+		color: black;
+		text-align: center;
+		padding: 10px 12px;
+		text-decoration: none;
+		font-weight: 700;
+		display: inline-block;
+		position: relative;
+		height: 100%;
+		font-size: 16px;
+	}
+
+	/* Hide the link that should open and close the TopNav on small screens */
+	.TopNav .Icon {
+		display: none;
+		height: 100%;
+	}
+
+	.NavBarBrandLogo {
+		width: auto;
+		height: 100%;
+	}
+
+	.DropBtn {
+		display: inline-block;
+		position: relative;
+		margin: 0;
+		padding: 0;
+		border: 0;
+		font: inherit;
+		vertical-align: baseline;
+	}
+
+	.TopNav a:after, .DropBtn:after {
+		content: '';
+		position: absolute;
+		width: 100%;
+		transform: scaleX(0);
+		height: 0;
+		bottom: 0;
+		left: 0;
+		background-color: red;
+		transform-origin: bottom right;
+		transition: transform 0.25s ease-out;
+	}
+
+	.TopNav a:hover:after, .DropBtn:hover:after {
+		transform: scaleX(1);
+		transform-origin: bottom left;
+		height: 2px;
+	}
+
+	/* Dropdown container - needed to position the DropDown content */
+	.DropDown {
+		float: left;
+		overflow: hidden;
+	}
+
+	/* Style the DropDown button to fit inside the TopNav */
+	.DropDown .DropBtn {
+		border: none;
+		outline: none;
+		color: black;
+		padding: 10px 12px;
+		background-color: inherit;
+		font-weight: 700;
+		margin: 0;
+		cursor: pointer;
+		font-size: 16px;
+	}
+
+	/* Style the DropDown content (hidden by default) */
+	.DropDownContent {
+		display: none;
+		position: absolute;
+		min-width: 160px;
+		box-shadow: 4.45px 4.45px 4.45px 4.45px rgba(0, 0, 0, 0.2);
+		z-index: 1;
+		background-color: #edf2f4;
+	}
+
+	/* Style the links inside the DropDown */
+	.DropDownContent a {
+		float: none;
+		color: black;
+		padding: 12px 16px;
+		text-decoration: none;
+		display: block;
+		text-align: left;
+	}
+
+	/* Add a grey background to DropDown links on hover */
+	.DropDownContent a:hover {
+		background-color: #ddd;
+		transition: 0.2s ease;
+	}
+
+	/* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the TopNav (.Icon) */
+	@media screen and (max-width: 600px) {
+		.TopNav a:not(:first-child),
+		.DropDown .DropBtn {
+			display: none;
+		}
+
+		.TopNav a.Icon {
+			float: right;
+			display: block;
+		}
+
+	}
+
+	/* The "Responsive" class is added to the TopNav with JavaScript when the user clicks on the Icon. This class makes the TopNav look good on small screens (display the links vertically instead of horizontally) */
+	@media screen and (max-width: 600px) {
+		.TopNav.Responsive {
+			position: relative;
+		}
+
+		.TopNav.Responsive a.Icon {
+			position: absolute;
+			right: 0;
+			top: 0;
+		}
+
+		.TopNav.Responsive a {
+			float: none;
+			display: block;
+			text-align: left;
+		}
+
+		.TopNav.Responsive .DropDown {
+			float: none;
+		}
+
+		.TopNav.Responsive .DropDownContent {
+			position: relative;
+		}
+
+		.TopNav.Responsive .DropDown .DropBtn {
+			display: block;
+			width: 100%;
+			text-align: left;
+		}
+	}
+
+	/* GOOGLE TRANSLATE BOX */
+	.google_translate {
+		width: 200px;
+		height: auto;
+		margin: 5px auto 0 auto;
+	}
+
+	.goog-te-combo {
+		background-color: white;
+		color: #8f8f8f;
+		border: none;
+		-webkit-appearance: button;
+		appearance: button;
+		outline: none;
+		position: relative;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+
+	.goog-te-combo option {
+		background: white;
+		color: black;
+	}
+
+	#google_translate_element span {
+		display: none;
+	}
+
+	.goog-te-gadget {
+		color: transparent !important;
+	}
+
+	/* SOCIAL MEDIA BOX */
+	.SocialMediaBox {
+		display: inline-block;
+		position: static;
+		width: 100%;
+		height: auto;
+		margin: 10px auto 0 auto;
+		text-align: center;
+		overflow: hidden;
+		z-index: auto;
+		box-shadow: 0 0 0 0;
+	}
+
+	.fa-linkedin {
+		color: #0077b5;
+	}
+
+	.fa-instagram {
+		color: #EF233C;
+	}
+
+	.fa-facebook-square {
+		color: #3b5998;
+	}
+
+	.fa-github {
+		color: black;
+	}
+
+	.fa-linkedin, .fa-instagram, .fa-facebook-square, .fa-github {
+		overflow: hidden;
+		font-size: 30px;
+	}
+
+	.GooglePlayStoreLogo {
+		overflow: hidden;
+		width: 30px;
+		height: 30px;
+	}
+
+	.fa-linkedin:hover, .fa-instagram:hover, .fa-facebook-square:hover, .fa-github:hover {
+		transition: 0.2s ease;
+		font-size: 33px;
+	}
+
+	.GooglePlayStoreLogo:hover {
+		transition: 0.2s ease;
+		width: 33px;
+		height: 33px;
+	}
+
+	main h1 {
+		font-size: 28px;
+	}
+
+	main h2 {
+		font-size: 23px;
+	}
+
+	main h3 {
+		font-size: 20px;
+	}
+
+	main h4 {
+		font-size: 18px;
+	}
+
+	p, li, label, input[type='submit'], button, strong {
+		font-size: 15px;
+	}
+
+	strong {
+		font-weight: bold;
+	}
+
+	footer {
+		padding: 0px 0px 0px 0px;
+	}
+
+	.CopyRightInformation{
+		float: right;
+		position: relative;
+		bottom: 0px;
+		text-decoration: none;
+		padding: 0px 5px 0px 5px;
+	}
+	
+	.CopyRightInformation li {
+		color: #616161;
+		text-decoration: none;
+		display: inline;
+		margin: 0px 3px 0px 3px;
+	}
+	
+	.CopyRightInformation a {
+		text-decoration: none;
+		color: #616161;
+	}
+	
+	.CopyRightInformation a:hover{
+		text-decoration: underline;
+	}	
+}
+
+/* Galaxy Fold */
+@Media (min-width: 279px) {
+	.TopNav a {
+		font-size: 16px;
+		padding: 11px 13px;
+	}
+	.DropDown .DropBtn {
+		padding: 11px 13px;
+	}
+	.google_translate {
+	    margin-top: 10px;
+	}
+	.CookieNotice {
+		height: 180px;
+	}
+	.LinkAndTextBox {
+		height: 120px;
+	}
+	.CookieNoticeFormBox {
+		height: 50px;
+	}
+
+}
+
+/* I Phone 5/SE, I phone 4, Nokia Lumia 520 */
+@Media (min-width: 319px) {
+	.TopNav a {
+		font-size: 17px;
+		padding: 12px 14px;
+		font-weight: 700;
+	}
+	.DropDown .DropBtn {
+		padding: 12px 14px;
+		font-size: 17px;
+		font-weight: 700;
+	}
+	.google_translate {
+	    margin-top: 15px;
+	}
+	/* TEXTS *************** */
+	/* Font-size */
+	main h1 {
+		font-size: 30px;
+	}
+	main h2 {
+		font-size: 25px;
+	}
+	main h3 {
+		font-size: 21px;
+	}
+	main h4 {
+		font-size: 19px;
+	}
+	p, li, label, input[type='submit'], button, strong {
+		font-size: 16px;
+	}
+}
+
+/* Galaxy Note 3, Galaxy Note 2, Galaxy S3, Galaxy S5, Nexus 5, Moto G4, Microsoft Lumia950, */
+@Media (min-width: 359px) {
+	main h1 {
+		font-size: 35px;
+	}
+	main h2 {
+		font-size: 27px;
+	}
+	main h3 {
+		font-size: 23px;
+	}
+}
+
+/* Iphone 6/7/8 */
+@Media (min-width: 374px) {
+	main h2 {
+		font-size: 30px;
+	}
+	main h3 {
+		font-size: 25px;
+	}
+}
+
+/* LG Optimus L70, Nexus 4 */
+@Media (min-width: 383px) {}
+
+/* I phone 12 Pro */
+@media (min-width: 389px) {
+	main h1 {
+		font-size: 35px;
+	}
+	main h2 {
+		font-size: 33px;
+	}
+	main h3 {
+		font-size: 30px;
+	}
+	main h4 {
+		font-size: 23px;
+	}
+	main h5 {
+		font-size: 22px;
+	}
+	p, li, label, input[type='submit'], button, strong {
+		font-size: 18px;
+	}
+	.TopNav a, .DropDown .DropBtn  {
+		padding: 14px 16px;
+		font-size: 20px;
+	}
+	.CookieNotice {
+		height: 200px;
+	}
+	.LinkAndTextBox {
+		height: 140px;
+	}
+	.CookieNoticeFormBox {
+		height: 50px;
+	}
+	
+}
+
+/* Iphone 6,7,8 Plus, Nexus 6P, Nexus 6, Nexus 5X */
+@Media (min-width: 412px) {}
+
+/* Surface Duo */
+@Media (min-width: 539px) {
+	main h1 {
+		font-size: 40px;
+	}
+	main h2 {
+		font-size: 35px;
+	}
+	main h3 {
+		font-size: 30px;
+	}
+	main h4 {
+		font-size: 25px;
+	}
+	main h5 {
+		font-size: 22px;
+	}
+	.LinkAndTextBox {
+		height: 125px;
+	}
+
+}
+
+/* Black Berry Play Book */
+@Media (min-width: 599px) {
+	main h1 {
+		font-size: 45px;
+	}
+	main h2 {
+		font-size: 40px;
+	}
+	main h3 {
+		font-size: 35px;
+	}
+	main h4 {
+		font-size: 30px;
+	}
+	main h5 {
+		font-size: 25px;
+	}
+	
+}
+
+/* Microsoft Lumia 550 */
+@Media (min-width: 639px) {
+	.CookieNotice {
+		height: 120px;
+	}
+	.LinkAndTextBox {
+		width: 80%;
+	}
+	.CookieNoticeFormBox {
+		width: 20%;
+	}
+	.IGotIt {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+}
+
+/* Ipad */
+@Media (min-width: 767px) {
+	.CookieNotice {
+		height: 130px;
+	}
+	.LinkAndTextBox {
+		width: 78%;
+	}
+	.CookieNoticeFormBox {
+		width: 22%;
+	}
+	.LinkAndTextBox, .CookieNoticeFormBox {
+		height: 100%;
+	}
+	/* SOCIAL MEDIA BOX ****************************** */
+	.SocialMediaBox {
+		display: grid;
+		position: fixed;
+		height: auto;
+		width: auto;
+		margin-left: 15px;
+		padding: 20px 12px;
+		background: #cccccc45;
+		z-index: 2;
+		border-radius: 10px;
+		box-shadow: 4.45px 4.45px 4.45px 4.45px rgba(0, 0, 0, 0.2);
+		animation-name: social-media-box-load;
+		animation-duration: var(--social-media-box-load);
+		animation-timing-function: ease-out;
+		animation-delay: var(--content-load-time);
+		animation-fill-mode: forwards;
+		transform: translateX(-200%);
+	}
+	@keyframes social-media-box-load {
+		0% {
+			transform: translateX(-200%);
+		}
+
+		100% {
+			transform: translateX(0);
+		}
+	}
+	.fa-linkedin, .fa-instagram, .fa-facebook-square, .fa-github {
+		font-size: 40px;
+	}
+	.GooglePlayStoreLogo {
+		width: 40px;
+		height: 40px;
+	}
+	.fa-linkedin:hover, .fa-instagram:hover, .fa-facebook-square:hover, .fa-github:hover {
+		font-size: 43px;
+	}
+	.GooglePlayStoreLogo:hover {
+		width: 43px;
+		height: 43px;
+	}
+	footer {
+		padding: 10px 20px;
+	}
+}
+
+/* Kindle Fire HDX */
+@Media (min-width: 799px) {}
+/* I pad Pro */
+@Media (min-width: 1023px) {}
+/* Laptop with MDPI screen, Laptop with touch */
+/* Here might be the part that you reached the normal computer measurements so check eventhough you writing some Media query for bigger screens is this Media query applies */
+@Media (min-width: 1279px) {
+	.CookieNotice {
+		height: 90px;
+		padding: 5px 20px;
+	}
+}
+@media (min-width: 1359px) {}
+
+/* Laptop with HiDPI screen */
+@media (min-width: 1439px) {}
+@media (min-width: 1442px) {}

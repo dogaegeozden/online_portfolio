@@ -1,0 +1,466 @@
+/* MEDIA QUERIES SMALL -> BIG */
+
+
+/* JioPhone 2 */
+@Media (min-width: 239px) {
+	.ProfileBox {
+		display: block;
+		margin: 30px auto;
+		width: 90%;
+		min-height: 100px;
+		height: auto;
+	}
+
+	.ProfilePic {
+		width: 216px;
+		height: 280.8px;
+	}
+
+	.ProfilePic, .TALMI, .ActivityImg {
+		display: block;
+		margin: auto;
+	}
+
+	.BioBox {
+		float: left;
+		display: block;
+		width: 100%;
+		min-height: 100px;
+		height: auto;
+	}
+
+	.BioPicBox {
+		display: block;
+		width: 100%;
+		margin: 0 auto 20px auto;
+		float: left;
+		min-height: 100px;
+		height: auto;
+	}
+
+	.BioTextBox {
+		width: 100%;
+		display: block;
+		min-height: 100px;
+		height: auto;
+		float: left;
+		margin: 0;
+		padding: 0;
+	}
+
+	.BioTextBoxContent {
+		text-align: center;
+	}
+
+	.ProfileBox h2 {
+		text-align: center;
+	}
+
+	.LanguagesAndToolsBox {
+		width: 100%;
+		display: block;
+		min-height: 100px;
+		float: left;
+		height: auto;
+	}
+
+	.BioBox, .LanguagesAndToolsBox {
+		margin: 0 auto 30px auto;
+	}
+
+	.TALMI {
+		width: 216px;
+		height: 259.2px;
+	}
+
+	.TALIB {
+		margin-bottom: 20px;
+	}
+
+	.TALTB {
+		width: 100%;
+		display: block;
+	}
+
+	.ToolsAndLanguagesLeft, .ToolsAndLanguagesRight {
+		float: left;
+		display: block;
+	}
+
+	.ToolsAndLanguagesLeft {
+		width: 100%;
+		padding: 0;
+	}
+
+	.ToolsAndLanguagesRight {
+		width: 100%;
+	}
+
+	.ToolIcon {
+		width: 30px;
+		height: 30px;
+		margin: 2.5px;
+	}
+
+	.ToolIcon:hover {
+		height: 33px;
+		width: 33px;
+		transition: 0.2s ease;
+	}
+
+	.Activities {
+		display: inline-block;
+		min-height: 100px;
+		height: auto;
+		float: left;
+		margin: 0 auto 0 auto;
+	}
+
+	.ActivityImg {
+		width: 216px;
+		height: 259.2px;
+	}
+
+	.SpecificActivityBox {
+		min-height: 100px;
+		height: auto;
+		margin-top: 20px;
+		display: inline-block;
+	}
+
+	.SAIB, .SATB {
+		padding: 0;
+		margin: 0 0 10px 0;
+		float: left;
+		display: block;
+		width: 100%;
+		min-height: 100px;
+		height: auto;
+	}
+
+	.SpecificActivityBox:last-of-type {
+		margin-bottom: 20px;
+	} 
+
+	.LeftSAIB, .LeftSATB {
+		float: left;
+	}	
+	.RightSAIB, .RightSATB {
+		float: right;
+	}
+
+}
+
+/* Galaxy Fold */
+@Media (min-width: 279px) {
+	.ProfilePic {
+		width: 252px;
+		height: 327.6px;
+	}
+	.TALMI, .ActivityImg {
+		width: 252px;
+		height: 302.4px;
+	}
+	.SAIB {
+		margin: 0 0 20px 0;
+	}
+}
+
+/* I Phone 5/SE, I phone 4, Nokia Lumia 520 */
+@Media (min-width: 319px) {
+	.ProfilePic {
+		width: 288px;
+		height: 374.4px;
+	}
+	.TALMI, .ActivityImg {
+		width: 288px;
+		height: 345.6px;
+	}
+}
+
+/* Galaxy Note 3, Galaxy Note 2, Galaxy S3, Galaxy S5, Nexus 5, Moto G4, Microsoft Lumia950, */
+@Media (min-width: 359px) {
+	.ProfilePic {
+		width: 324px;
+		height: 421.2px;
+	}
+	.TALMI, .ActivityImg {
+		width: 324px;
+		height: 388.8px;
+	}
+	.TALIB {
+		margin: 20px auto;
+	}
+	SpecificActivityBox:first-of-type {
+		margin-top: 20px;
+	}
+}
+
+/* Iphone 6/7/8 */
+@Media (min-width: 374px) {
+	.ProfilePic {
+		width: 337.5px;
+		height: 438.75px;
+	}
+	.TALMI, .ActivityImg {
+		width: 337.5px;
+		height: 405px;
+	}
+}
+
+/* LG Optimus L70, Nexus 4 */
+@Media (min-width: 383px) {
+	.ProfilePic {
+		width: 345.6px;
+		height: 449.28px;
+	}
+	.TALMI, .ActivityImg {
+		width: 345.6px;
+		height: 414.72px;
+	}
+}
+
+/* Iphone 12 Pro */
+@media (min-width: 389px) {
+	.ProfilePic {
+		width: 351px;
+		height: 456.3px;
+	}
+	.TALMI, .ActivityImg {
+		width: 351px;
+		height: 421.2px;
+	}
+}
+
+/* Iphone 6,7,8 Plus, Nexus 6P, Nexus 6, Nexus 5X */
+@Media (min-width: 412px) {
+	.ProfileBox {
+		margin: 50px auto;
+	}
+	.ProfilePic {
+		width: 370.8px;
+		height: 482.04px;
+	}
+	.TALMI, .ActivityImg {
+		width: 370.8px;
+		height: 444.96px;
+	}
+
+}
+
+/* Surface Duo */
+@Media (min-width: 539px) {
+	.ProfilePic {
+		width: 486px;
+		height: 631.8px;
+	}
+	.TALMI, .ActivityImg {
+		width: 486px;
+		height: 583.2px;
+	}
+	.ToolIcon {
+		width: 35px;
+		height: 35px;
+	}
+	.ToolIcon:hover {
+		height: 38px;
+		width: 38px;
+	}
+}
+
+/* Black Berry Play Book */
+@Media (min-width: 599px) {
+	.ProfilePic {
+		width: 540px;
+		height: 702px;
+	}
+	.LanguagesAndToolsBox {
+		display: flex;
+	}
+	.ToolsAndLanguagesLeft {
+		width: 60%;
+		padding: 10px;
+	}
+	.ToolsAndLanguagesRight {
+		width: 40%;
+	}
+	.SpecificActivityBox {
+		height: auto;
+		margin-top: 45px;
+	}
+	.SAIB, .SATB {
+		margin: 0 2.5%;
+	}
+	.LeftSAIB, .LeftSATB {
+		float: left;
+	}
+	.RightSAIB, .RightSATB {
+		float: right;
+	}
+	.SAIB {
+		width: 40%;
+		height: 100%;
+	}
+	.SATB {
+		width: 50%;
+		padding: 0px 5px;
+	}
+	.TALMI, .ActivityImg {
+		width: 100%;
+		height: 259.2px;
+	}
+}
+
+/* Microsoft Lumia 550 */
+@Media (min-width: 639px) {
+	.ProfilePic {
+		width: 576px;
+		height: 748.8px;
+	}
+	.TALMI, .ActivityImg {
+		height: 276.468px;
+	}
+	.TALIB {
+		margin-bottom: 0px;
+	}
+	.ActivityImg {
+		height: px;
+	}
+}
+
+/* Ipad */
+@Media (min-width: 767px) {
+	.ProfileBox {
+		width: 100%;
+		margin: 90px auto;
+	}
+	.BioBox {
+		display: flex;
+	}
+	.ProfilePic {
+		width: 100%;
+		height: 399.347px;
+	}
+	.BioPicBox {
+		width: 40%;
+		margin-right: 5%;
+	}
+	.BioTextBox {
+		width: 50%;
+		padding: 0;
+		margin-right: 5%;
+	}
+	.BioTextBoxContent {
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+	.ProfileBox h2 {
+		font-weight: 400;
+		text-align: center;
+	}
+	.BioBox, .LanguagesAndToolsBox {
+		margin-bottom: 70px;
+	}
+	.TALIB, .SpecificActivityBox:first-of-type {
+		margin-top: 50px;
+	}
+	.ToolIcon {
+		width: 50px;
+		height: 50px;
+	}
+	.ToolIcon:hover {
+		height: 55px;
+		width: 55px;
+	}
+	.TALMI, .ActivityImg {
+		height: 368.628px;
+	}
+	.SpecificActivityBox {
+		margin-top: 60px;
+	}
+	.ActivityImg {
+		height: 368.628px;
+	}
+}
+
+/* Kindle Fire HDX */
+@Media (min-width: 799px) {
+	.ProfilePic {
+		height: 416px;
+	}
+	.TALMI, .ActivityImg {
+		height: 384px;
+	}
+	.ToolsAndLanguagesLeft {
+		padding: 10px 20px;
+	}
+}
+
+/* I pad Pro */
+@Media (min-width: 1023px) {
+	.ProfileBox {
+		margin: 120px auto;
+	}
+	.ProfilePic {
+		height: 532.467px;
+	}
+	.BioBox {
+		margin-bottom: 100px;
+	}
+	.BioTextBoxContent{
+		width: 80%;
+		display: block;
+		margin: auto;
+	}
+	.LanguagesAndToolsBox {
+		margin-bottom: 100px;
+	}
+	.ToolsAndLanguagesLeft {
+		padding: 40px 80px;
+	}
+	.SpecificActivityBox {
+		margin-top: 75px;
+	}
+	.SpecificActivityBox:last-of-type {
+		margin-bottom: 0px;
+	}
+	.TALMI, .ActivityImg {
+		height: 491.508px;
+	}
+}
+
+/* Laptop with MDPI screen, Laptop with touch */
+/* Here might be the part that you reached the normal computer measurements so check eventhough you writing some Media query for bigger screens is this Media query applies */
+@Media (min-width: 1279px) {
+	.ProfilePic {
+		height: 665.067px;
+	}
+	.TALMI, .ActivityImg {
+		height: 613.908px;
+	}
+	.SATB {
+		padding: 40px 0;
+	}
+
+}
+
+@media (min-width: 1359px) {
+	.ProfilePic {
+		height: 707.2px;
+	}
+	.TALMI, .ActivityImg {
+		height: 652.8px;
+	}
+}
+
+/* Laptop with HiDPI screen */
+@media (min-width: 1439px) {
+	.ProfilePic {
+		height: 748.8px;
+	}
+	.TALMI, .ActivityImg {
+		height: 691.2px;
+	}
+}
+

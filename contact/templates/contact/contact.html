@@ -1,0 +1,46 @@
+<!-- Extend the base html with this html file -->
+{% extends "base.html" %}
+
+<!--  Overwriting the metaDescription block -->
+{% block metaDescription %}
+<meta name="description" content="{{ all_meta_description_objs.last.text }}">
+{% endblock %}
+
+<!--  Overwriting the title block -->
+{% block title %}
+<title>Doga Ege Ozden | Contact</title>
+{% endblock %}
+
+<!--  Overwriting the stylesheet block -->
+{% block stylesheet %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/contact/contact.css' %}">
+{% endblock %}
+
+<!--  Overwriting the mainBox block -->
+{% block mainBox %}
+<div class="ContactPageBox">
+    <h1>CONTACT</h1>
+    <div class="VisualContentBox">
+        {% if all_contact_page_picture_obj.first.image %}
+        <img class="ContactPMainImg" src='{{all_contact_page_picture_obj.last.image.url}}' alt='{{all_contact_page_picture_obj.last.alt}}'>
+        {% endif %}
+    </div>
+
+    <div class="FormBox">        
+        <form class='MessageForm' action='.' method='POST'>{% csrf_token %}
+            <label for="id_first_name">First Name:</label>
+            <input type="text" name="first_name" maxlength="250" required="" id="id_first_name">
+            <label for="id_last_name">Last Name:</label>
+            <input type="text" name="last_name" maxlength="250" id="id_last_name">
+            <label for="id_email">E-mail:</label>
+            <input type="email" name="email" maxlength="350" required="" id="id_email">
+            <label for="id_phone_number">Phone Number:</label>
+            <input type="text" name="phone_number" maxlength="100" id="id_phone_number">
+            <label for="id_message">Message:</label>
+            <input type="text" name="message" maxlength="7500" required="" id="id_message">
+            <input class='MsgSendBtn' name="msgSendBtn" type='submit' value="Submit">
+        </form>
+    </div>
+</div>
+{% endblock %}

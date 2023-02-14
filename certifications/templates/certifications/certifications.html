@@ -1,0 +1,111 @@
+<!-- Extending the base html with this html file -->
+{% extends "base.html" %}
+
+<!-- Overwriting the metaDescription block -->
+{% block metaDescription %}
+<meta name="description" content="{{ all_meta_description_objs.last.text }}">
+{% endblock %}
+
+<!-- Overwriting the title block -->
+{% block title %}
+<title>Doga Ege Ozden | Certifications</title>
+{% endblock %}
+
+<!-- Overwriting the stylesheet block -->
+{% block stylesheet %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/certifications/certifications.css' %}">
+{% endblock %}
+
+<!-- Overwriting the mainBox block -->
+{% block mainBox %}
+{% if all_certification_objs.first.title %}
+<div class="CertificationPageBox">
+    <h1>CERTIFICATES</h1>
+    {% for c in all_certification_objs reversed %}
+    <div id="{{ c.image }}" class="CertificationFrame">
+        <p class="CTitle">{{ c.title }}</p>
+        <a class="Link" target="_blank" href="{{ c.image.url }}"><img class="CImg" src="{{ c.image.url }}" alt="{{ c.alt }}"></a>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+{% endblock %}
+
+<!-- Overwriting the js block -->
+{% block js %}
+<!-- A javascript code that sends a post request to the server when a user clicks to a certification frame. -->
+<script type="text/javascript">
+// Creating an array called certificationFrames by selecting all the elements from the DOM which has CertificationFrame class.
+let certificationFrames = document.querySelectorAll(".CertificationFrame");
+
+function addPostRequestSendingFunctionality() {
+    // A function which adds send request functionality to all elements in the array.
+
+    // Looping in the range of certificationFrames array's length 
+    for (let cF = 0; cF < certificationFrames.length; cF++ ) {
+        // Creating a variable called certificationChoice from the certification's id attribute.
+        let certificationChoice = certificationFrames[cF].getAttribute("id");
+
+        // Connecting the element with the sendCertChoInf function as the function will going to trigger with a click.
+        certificationFrames[cF].addEventListener("click", sendCertChoInf);
+
+        function sendCertChoInf () {
+            // A function which sends a post request to the server.
+
+            var csrf = "{{ csrf_token }}";
+            $.ajax({
+                url: '',
+                type: 'POST',
+                data: {
+                    id: "certchoinf",
+                    certificationChoice: certificationChoice,
+                    csrfmiddlewaretoken: csrf,
+                },
+            });
+        }
+    }
+}
+// Calling the addPostRequestSendingFunctionality function.
+addPostRequestSendingFunctionality();
+</script>
+
+<!-- Creating a script which finds the certification frame which has the highest height value and sets the other frames' height to that value. -->
+<script>
+// Creating an empty array called heightValues 
+let heightValues = [];
+
+function findTheLongestFrame(){
+    // A function which finds the longest certification frame.
+
+    for (let cF = 0; cF < certificationFrames.length; cF++ ) {
+        // Creating a variable called certificationChoice from the certification's id attribute.
+        let certificationFrameHeight = certificationFrames[cF].offsetHeight;
+        // Appending the height values to heightValues array
+        heightValues.push(certificationFrameHeight);
+    }
+
+    // Creating variable called heighestValue from the heightValues array's maximum value.
+    let heighestValue = `${Math.max(...heightValues)}px`;
+
+    return heighestValue
+} 
+
+function changeFrameHeights(){
+    // A function which sets every frame's height equal to the longest one's height.
+
+    console.log(findTheLongestFrame());
+    for (let cFI = 0; cFI < certificationFrames.length; cFI++) {
+        // Setting every single certification frame's height equal to the longest one's height.
+        certificationFrames[cFI].style.height = findTheLongestFrame();
+    }
+}
+
+// Calling the findTheLongestFrame function.
+findTheLongestFrame();
+
+// Calling the changeFrameHeights function.
+changeFrameHeights();
+
+</script>
+{% endblock %}

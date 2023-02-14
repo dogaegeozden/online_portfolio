@@ -1,0 +1,340 @@
+/* MEDIA QUERIES SMALL -> BIG */
+
+
+/* JioPhone 2 */
+@Media (min-width: 239px) {
+    .WorksPageBox {
+        display: inline-block;
+        width: 100%;
+        height: auto;
+        min-height: 100px;
+        margin: 30px auto;
+        overflow: hidden;
+    }
+    .ClassicHeader1 {
+        margin: 0 auto 20px auto;
+        text-align: center;
+    }
+    .GraphicDesignBox {
+        min-height: 20px;
+        height: auto;
+        display: inline-block;
+        margin-bottom: 30px;
+        width: 100%;
+    }
+    .CloudText {
+        font-family: 'Coiny', cursive;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-image: url(/static/assets/clouds.jpg);
+        background-size: auto;
+        background-attachment: unset;
+        background-position: 0%;
+        animation: clouds-moving infinite 220s;
+        animation-fill-mode: forwards;
+        animation-play-state: running;
+        animation-timing-function: linear;
+        display: block;
+        height: 100%;
+        text-align: center;
+        padding: 10px 0;
+    }
+    @keyframes clouds-moving {
+        0% {
+            background-position: 0%;
+        }
+        50% {
+            background-position: 100%;
+        }
+        100% {
+            background-position: 0%;
+        }
+    }
+    .GDTitleBox, .WDTitleBox {
+        display: inline-block;
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+    .GDSSBox {
+        width: 100%;
+        height: 200px;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 0;
+        display: inline-block;
+    }
+    .PrevBtnBox, .NextBtnBox {
+        height: 100%;
+        width: 20%;
+        float: left;
+        display: block;
+    }
+    .GDTitleBox {
+        margin: auto;
+        text-align: center;
+    }
+    .GDS {
+        display: block;
+        float: left;
+        width: 60%;
+        height: 100%;
+        text-align: center;
+    }
+    .GDSCont {
+        position: relative;
+        max-width: 100%;
+        max-height: 100%;
+    }
+    
+    .GDSVCont {
+        min-height: 80%;
+        min-width: 100%;
+    }
+    .SlideShowBtn {
+        height: 30px;
+        width: 30px;
+        font-size: 15px;
+        font-weight: bold;
+        top: 50%;
+        transform: translateY(-50%);
+        border: none;
+        outline: none;
+        color: rgb(255, 255, 255);
+        background: #111;
+        cursor: pointer;
+        position: relative;
+        z-index: 0;
+        border-radius: 50%;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+    }
+    .SlideShowBtn:before {
+        content: "";
+        background: linear-gradient(
+          45deg,
+          #ff0000,
+          #ff7300,
+          #fffb00,
+          #48ff00,
+          #00ffd5,
+          #002bff,
+          #7a00ff,
+          #ff00c8,
+          #ff0000
+        );
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        background-size: 400%;
+        z-index: -1;
+        filter: blur(5px);
+        -webkit-filter: blur(5px);
+        width: calc(100% + 4px);
+        height: calc(100% + 4px);
+        animation: glowing-button 20s linear infinite;
+        transition: opacity 0.3s ease-in-out;
+        border-radius: 50%;
+    }
+    @keyframes glowing-button {
+        0% {
+            background-position: 0 0;
+        }
+        50% {
+            background-position: 400% 0;
+        }
+        100% {
+            background-position: 0 0;
+        }
+    }
+    .SlideShowBtn:after {
+        z-index: -1;
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: #222;
+        left: 0;
+        top: 0;
+        border-radius: 50%;
+    }
+    .PrevBtn {
+        float: left;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+    .NextBtn {
+        float: right;
+        right: 50%;
+        transform: translate(50%, -50%);
+    }
+    .WebDevelopmentBox {
+        min-height: 200px;
+        width: 100%;
+        margin: auto;
+        height: auto;
+        position: relative;
+    }
+    .WDTitleBox {
+        display: inline-block;
+    }
+    .WDLBox {
+        display: inline-block;
+        position: relative;
+        left: 40%;
+        width: 55%;
+        height: 75%;
+    }
+    .ProjectLink a {
+        font-family: 'Dancing Script', cursive;
+        color: black;
+        text-decoration: none;
+        font-size: 20px;
+    }
+    .ProjectLink a:hover {
+        font-size: 25px;
+        transition: 0.35s ease;
+    }
+    .WDLBox ul li {
+        list-style: none;
+    }
+}
+
+/* Galaxy Fold */
+@Media (min-width: 279px) {
+    .SlideShowBtn {
+        height: 40px;
+        width: 40px;
+    }
+}
+
+/* I Phone 5/SE, I phone 4, Nokia Lumia 520 */
+@Media (min-width: 319px) {}
+
+/* Galaxy Note 3, Galaxy Note 2, Galaxy S3, Galaxy S5, Nexus 5, Moto G4, Microsoft Lumia950, */
+@Media (min-width: 359px) {
+    .SlideShowBtn {
+        height: 45px;
+        width: 45px;
+    }
+}
+
+/* Iphone 6/7/8 */
+@Media (min-width: 374px) {
+    .ClassicHeader1 {
+        margin-bottom: 30px;
+    }
+    .GDSSBox {
+        height: 300px;
+    }
+}
+
+/* LG Optimus L70, Nexus 4 */
+@Media (min-width: 383px) {}
+
+/* Iphone 12 Pro */
+@media (min-width: 389px) {}
+
+/* Iphone 6,7,8 Plus, Nexus 6P, Nexus 6, Nexus 5X */
+@Media (min-width: 412px) {
+    .WorksPageBox {
+        margin: 50px auto;
+    }
+}
+
+/* Surface Duo */
+@Media (min-width: 539px) {
+    .GDSSBox {
+        height: 400px;
+    }
+    .ProjectLink a {
+        font-size: 25px;
+    }
+    .ProjectLink a:hover {
+        font-size: 30px;
+    }
+    .SlideShowBtn {
+        height: 60px;
+        width: 60px;
+        font-size: 25px;
+    }
+}
+
+/* Black Berry Play Book */
+@Media (min-width: 599px) {
+    .GDSSBox {
+        height: 500px;
+    }
+}
+
+/* Microsoft Lumia 550 */
+@Media (min-width: 639px) {}
+
+/* Ipad */
+@Media (min-width: 767px) {
+    .WorksPageBox {
+        margin: 90px auto;
+    }
+    .ClassicHeader1 {
+		margin-left: 100px;
+		text-align: initial;
+	}
+    .CloudText {
+		text-align: initial;
+		margin-left: 150px;
+	}
+    .GraphicDesignBox {
+        margin-bottom: 70px;
+    }
+    .GDSSBox {
+        height: 550px;
+    }
+    .GDSSBox, WDLBox {
+        margin-top: 30px;
+    }
+    .SlideShowBtn {
+        height: 90px;
+        width: 90px;
+    }
+    .WDLBox {
+        left: 50%;
+    }
+    .ProjectLink a {
+        font-size: 30px;
+    }
+    .ProjectLink a:hover {
+        font-size: 35px;
+    }
+}
+
+/* Kindle Fire HDX */
+@Media (min-width: 799px) {}
+
+/* I pad Pro */
+@Media (min-width: 1023px) {
+    .WorksPageBox {
+        margin: 120px auto;
+    }
+    .GraphicDesignBox {
+        margin-bottom: 100px;
+    }
+    .GDSSBox {
+        height: 600px;
+    }
+}
+
+/* Laptop with MDPI screen, Laptop with touch */
+/* Here might be the part that you reached the normal computer measurements so check eventhough you writing some Media query for bigger screens is this Media query applies */
+@Media (min-width: 1279px) {
+    .CloudText {
+		text-align: initial;
+		margin-left: 170px;
+	}
+}
+
+@media (min-width: 1359px) {}
+/* Laptop with HiDPI screen */
+@media (min-width: 1439px) {}
+@media (min-width: 1442px) {}

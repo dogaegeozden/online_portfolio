@@ -1,0 +1,16 @@
+.TermsAndConditionsBox {
+    width: 85%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#Introduction ol a {
+    text-decoration: none;
+    color: black;
+}
+
+#Introduction ol a:hover {
+    text-decoration: underline;
+    transition: 0.35s ease;
+}

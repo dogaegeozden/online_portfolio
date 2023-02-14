@@ -1,0 +1,158 @@
+<!-- Extending the base html with this html file -->
+{% extends "base.html" %}
+
+<!-- Overwriting the metaDescription block -->
+{% block metaDescription %}
+<meta name="description" content="{{ all_meta_description_objs.last.text }}">
+{% endblock %}
+
+<!-- Overwriting the title block -->
+{% block title %}
+<title>Doga Ege Ozden | Works</title>
+{% endblock %}
+
+<!-- Overwriting the stylesheet block -->
+{% block stylesheet %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/works/works.css' %}">
+{% endblock %}
+
+<!-- Overwriting the mainBox block -->
+{% block mainBox %}
+<div class="WorksPageBox">
+    <h1 class="ClassicHeader1">WORKS</h1>
+
+    {% if all_graphic_design_objs.first.image or all_graphic_design_objs.first.video or all_graphic_design_objs.first.youtube_url %}
+    <div class="GraphicDesignBox">
+        <div class="GDTitleBox">
+            <h2 class="CloudText">Graphic Design</h2>
+        </div>
+
+        <div class="GDSSBox">
+            {% if number_of_graphic_design_objs > 1 %}
+            <div class="PrevBtnBox">
+                <button class="PrevBtn SlideShowBtn" type="button" name="button">&#10094;</button>
+            </div>
+            {% endif %}
+
+            {% for gdObj in all_graphic_design_objs %}
+            <div class="GDS">
+                {% if gdObj.image %}
+                <a href="{{ gdObj.image.url }}" target="_blank"><img name="{{gdObj.name}}"class="GDSCont" src="{{ gdObj.image.url }}" alt="{{ gdObj.alt }}"></a>
+                {% endif %}
+                {% if gdObj.video %}
+                <video name="{{gdObj.name}}"class='GDSCont GDSVCont'controls>
+                    <source src="{{ gdObj.video.url }}" type="video/mp4" alt="{{ gdObj.alt }}">
+                </video>
+                {% endif %}
+                {% if gdObj.youtube_url %}
+                <iframe name="{{gdObj.name}}"class='GDSCont GDSVCont' src="{{ gdObj.youtube_url }}" alt='{{ gdObj.alt }}' controls="1" showinfo="0" autoplay="0" frameborder="0" allowfullscreen="1"></iframe>
+                {% endif %}
+            </div>
+            {% endfor %}
+
+            {% if number_of_graphic_design_objs > 1 %}
+            <div class="NextBtnBox">
+                <button class="NextBtn SlideShowBtn" type="button" name="button">&#10095;</button>
+            </div>
+            {% endif %}
+        </div>
+
+    </div>
+    {% endif %}
+
+    <div class="WebDevelopmentBox">
+        <div class="WDTitleBox">
+            <h2 class="CloudText">Web Development</h2>
+        </div>
+
+        <div class="WDLBox">
+            <ul>
+                {% for p in all_web_development_objs %}
+                <li name="{{p.title}}" class="ProjectLink"><a href="#" target="_blank">{{ p.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}
+
+<!-- Overwriting the js block -->
+{% block js %}
+<!-- Calling external javascript file called slideshow.js -->
+<script src="{% static 'js/works/slideshow.js' %}"></script>
+
+<!-- A javascript code that sends a post request to the server when a user clicks to specific elements. -->
+<script type="text/javascript">
+    // Creating a query set called graphicDesignProjects by selecting all the elements from DOM that has GDSCont class.
+    let graphicDesignProjects = document.querySelectorAll(".GDSCont"),
+    // Creating a query set called webDevelopmentProjectssLinks by selecting all the elements which has ProjectLink class from the DOM.
+        webDevelopmentProjectssLinks = document.querySelectorAll(".ProjectLink");
+
+    function addPostRequestSendingAbility(){
+        // A function which adds post request sending functionality to specific elements.
+
+        // Iterating over graphicDesignProjects one by one.
+        for (let a = 0; a < graphicDesignProjects.length; a++ ) {
+    
+            // Getting the element's name attribute which is targetted from the graphicDesignProjects query set with the element's index number.
+            let grapDesProjChoice = graphicDesignProjects[a].getAttribute("name");
+    
+            // Connecting the element with the sendGDProjClickData function as the function will going to trigger with a click signal. 
+            graphicDesignProjects[a].addEventListener("click", sendGDProjClickData);
+    
+            function sendGDProjClickData () {
+                // A function which sends a post request to the server
+    
+                // Capturing the csrf token
+                var csrf = "{{ csrf_token }}";
+    
+                // Sending a post request.
+                $.ajax({
+                    url: '',
+                    type: 'POST',
+                    data: {
+                        requestID: "graphic_design_project_click_data",
+                        projectChoice: grapDesProjChoice,
+                        csrfmiddlewaretoken: csrf,
+                    },
+                });
+            }
+        }
+
+        // Iterating over the array one by one
+        for (let l = 0; l < webDevelopmentProjectssLinks.length; l++ ) {
+
+            // Identifying the project choice from the element's id
+            let webDevProjChoice = webDevelopmentProjectssLinks[l].getAttribute("name")
+
+            // Connecting the element with the sendProjectLinkClickData function as the function will going to trigger with a click signal. 
+            webDevelopmentProjectssLinks[l].addEventListener("click", sendProjectLinkClickData);
+
+            function sendProjectLinkClickData () {
+                // A function which sends a post request. 
+
+                // Capturing the csrf token
+                var csrf = "{{ csrf_token }}";
+
+                // Sending a post request
+                $.ajax({
+                    url: '',
+                    type: 'POST',
+                    data: {
+                        requestID: "web_development_project_link_click_data",
+                        projectChoice: webDevProjChoice,
+                        csrfmiddlewaretoken: csrf,
+                    },
+                });
+            }
+        }
+    }
+
+    // Calling the addPostRequestSendingAbility function.
+    addPostRequestSendingAbility();
+
+</script>
+{% endblock %}
